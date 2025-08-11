@@ -6,11 +6,11 @@
 using namespace std;
 
 
-#include "Plane.h"
-#include "FlightInfo.h"
-#include "CrewMember.h"
-#include "FlightCompany.h"
-#include "Address.h"
+#include "CPlane.h"
+#include "CFlightInfo.h"
+#include "CCrewMember.h"
+#include "CFlightCompany.h"
+#include "CAddress.h"
 #include <iostream>
 using namespace std;
 int main()
