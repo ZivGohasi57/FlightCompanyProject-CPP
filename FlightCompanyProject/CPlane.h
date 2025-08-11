@@ -1,4 +1,14 @@
 #pragma once
+#include <string>
+
+using namespace std;
+
+class CPlane
+{
+public:
+    CPlane();
+    ~CPlane();
+};
 
 
 // ===== CPlane =====

@@ -1,4 +1,15 @@
 #pragma once
+#include <string>
+#include "CAddress.h"
+
+using namespace std;
+
+class CCrewMember
+{
+public:
+    CCrewMember();
+    ~CCrewMember();
+};
 
 // ===== CCrewMember =====
 // members

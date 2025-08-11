@@ -1,4 +1,14 @@
 #pragma once
+#include <string>
+
+using namespace std;
+
+class CAddress
+{
+public:
+    CAddress();
+    ~CAddress();
+};
 
 // ===== CAddress =====
 // members
@@ -13,3 +23,5 @@
 // getters
 // print
 // update address
+
+

@@ -1,4 +1,15 @@
 #pragma once
+#include <string>
+
+
+using namespace std;
+
+class CFlightCompany
+{
+public:
+    CFlightCompany();
+    ~CFlightCompany();
+};
 
 
 // ===== CFlightCompany =====
