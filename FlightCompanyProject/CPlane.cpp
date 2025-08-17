@@ -3,14 +3,12 @@
 #include<iostream>
 #include<iomanip>
 using namespace std;
-CPlane::CPlane(int pIdentifier, int seatNum, string pModel) :
+CPlane::CPlane(const int pIdentifier, const int seatNum, const string pModel) :
 	planeIdentifier(pIdentifier), planeModel(pModel), numOfSeats(seatNum) {}
 
-CPlane::CPlane(const CPlane& other) {
-	this->planeIdentifier = other.getPlaneIdentifier();
-	this->planeModel = other.getPlaneModel();
-	this->numOfSeats = other.getNumOfSeats();
-}
+CPlane::CPlane(const CPlane& other):
+	planeIdentifier(other.planeIdentifier), numOfSeats(other.numOfSeats), 
+	planeModel(other.planeModel){}
 //gettes
 int CPlane::getPlaneIdentifier() const {
 	return this->planeIdentifier;

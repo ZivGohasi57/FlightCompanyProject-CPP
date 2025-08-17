@@ -4,14 +4,11 @@
 #include <iomanip>
 using namespace std;
 
-CAddress::CAddress(int hNumber, string sName, string cName) :
+CAddress::CAddress(const int hNumber, const string sName, const string cName) :
 	houseNumber(hNumber), streetName(sName), cityName(cName) {}
 	
-CAddress::CAddress(const CAddress& other) {
-	this->houseNumber = other.getHouseNumber();
-	this->streetName = other.getStreetName();
-	this->cityName = other.getCityName();
-}
+CAddress::CAddress(const CAddress& other):
+	houseNumber(other.houseNumber), streetName(other.streetName), cityName(other.cityName){}
 //getters
 string CAddress::getCityName() const {
 	return this->cityName;

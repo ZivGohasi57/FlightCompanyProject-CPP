@@ -10,7 +10,8 @@ private:
     string planeModel;
     int numOfSeats;
 public:
-    CPlane(int planeIdentifier, int numOfSeats, string planeModel);
+    CPlane(const int planeIdentifier, const int numOfSeats, const string planeModel);
+    CPlane(const CPlane& other);
     //getters
     int getPlaneIdentifier() const;
     string getPlaneModel() const;

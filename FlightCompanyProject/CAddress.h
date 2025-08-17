@@ -10,7 +10,7 @@ private:
     string streetName;
     int houseNumber;
 public:
-    CAddress(int houseNumber, string streetName, string cityName = "Tel Aviv");
+    CAddress(const int houseNumber, const string streetName, const string cityName = "Tel Aviv");
     CAddress(const CAddress& other);
     //getters
     string getCityName() const;
