@@ -10,12 +10,16 @@ private:
     string streetName;
     int houseNumber;
 public:
-    CAddress(string cityName = "Tel Aviv", string streetName, int houseNumber);
-    string getCityName();
-    string getStreetName();
-    int getHouseNumber();
-    void print();
-    void updateAddress(string cityName, string streetName, int houseNumber);
+    CAddress(int houseNumber,const string& streetName, const string& cityName = "Tel Aviv");
+    CAddress(const CAddress& other);
+    string getCityName() const;
+    string getStreetName() const;
+    int getHouseNumber() const;
+    void setCityName(string cityName);
+    void setStreetName(string streetName);
+    void setHouseNumber(int houseNumber);
+    void print() const;
+    void updateAddress(const string cityName, const string streetName, const int houseNumber);
     ~CAddress();
 };
 
