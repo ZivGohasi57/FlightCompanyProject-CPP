@@ -14,7 +14,7 @@ private:
 
 
 public:
-    CFlightInfo(const int flightNum , const string Destination, const int flightMinutes, const int flightDistance);
+    CFlightInfo(const string Destination, const int flightNum, const int flightMinutes, const int flightDistance);
     CFlightInfo(const CFlightInfo& other);
     ~CFlightInfo();
 
@@ -28,7 +28,7 @@ public:
 
     // setters
     void setFlightNumber(const int newFlightNum);
-    void setDestination(const string newDestination);
+    void SetDest(const string newDestination);
     void setFlightMinutes(const int newFlightMinutes);
     void setFlightDistance(const int newFlightDistance);
     

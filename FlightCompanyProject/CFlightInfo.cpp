@@ -4,7 +4,7 @@
 using namespace std;
 
 // ===== Constructor & Destructor =====
-CFlightInfo::CFlightInfo(const int flightNum, const string Destination, const int flightMinutes, const int flightDistance)
+CFlightInfo::CFlightInfo(const string Destination, const int flightNum, const int flightMinutes, const int flightDistance)
 {
 	this->flightNumber = flightNum;
 	this->Destination = Destination;
