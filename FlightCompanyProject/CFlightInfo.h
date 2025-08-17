@@ -6,8 +6,36 @@ using namespace std;
 class CFlightInfo
 {
 public:
-    CFlightInfo();
+    CFlightInfo(int flightNum , string Destination, int flightMinutes, int flightDistance);
     ~CFlightInfo();
+
+
+    // getters
+    int getFlightNumber() const;
+    string getDestination() const;
+    int getFlightMinutes() const;
+    int getFlightDistance()const;
+
+
+    // setters
+    void setFlightNumber(int newFlightNum);
+    void setDestination(string newDestination);
+    void setFlightMinutes(int newFlightMinutes);
+    void setFlightDistance(int newFlightDistance);
+    
+
+    // methods 
+    bool isEqual(int flightNum1, int flightNum2);
+
+
+    void print();
+
+
+private:
+    int flightNumber;
+    string Destination;
+    int flightMinutes;
+    int flightDistance;
 };
 
 
