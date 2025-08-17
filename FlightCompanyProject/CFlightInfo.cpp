@@ -4,20 +4,14 @@
 using namespace std;
 
 // ===== Constructor & Destructor =====
-CFlightInfo::CFlightInfo(const string Destination, const int flightNum, const int flightMinutes, const int flightDistance)
+CFlightInfo::CFlightInfo(const string flightDest, const int flightNum, const int flightMin, const int flightDis)
+	: Destination(flightDest) , flightNumber(flightNum), flightMinutes(flightMin), flightDistance(flightDis)
 {
-	this->flightNumber = flightNum;
-	this->Destination = Destination;
-	this->flightMinutes = flightMinutes;
-	this->flightDistance = flightDistance;
 }
 
 CFlightInfo::CFlightInfo(const CFlightInfo& other)
+	: Destination(other.Destination) , flightDistance(other.flightDistance), flightMinutes(other.flightMinutes) , flightNumber(other.flightNumber)
 {
-	this->Destination = other.Destination;
-	this->flightDistance = other.flightDistance;
-	this->flightMinutes = other.flightMinutes;
-	this->flightNumber = other.flightNumber;
 }
 
 
@@ -53,9 +47,14 @@ int CFlightInfo::getFlightDistance() const
 }
 
 // ===== Setters =====
-void CFlightInfo::setFlightNumber(const int newFlightNum)
+bool CFlightInfo::setFlightNumber(const int newFlightNum)
 {
-	this->flightNumber = newFlightNum;
+	if (newFlightNum > 0)
+	{
+		this->flightNumber = newFlightNum;
+		return true;
+	}
+	return false;
 }
 
 void CFlightInfo::SetDest(const string newDestination)
@@ -63,14 +62,24 @@ void CFlightInfo::SetDest(const string newDestination)
 	this->Destination = newDestination;
 }
 
-void CFlightInfo::setFlightMinutes(const int newFlightMinutes)
+bool CFlightInfo::setFlightMinutes(const int newFlightMinutes)
 {
-	this->flightMinutes = newFlightMinutes;
+	if (newFlightMinutes >= 0)
+	{
+		this->flightMinutes = newFlightMinutes;
+		return true;
+	}
+	return false;
 }
 
-void CFlightInfo::setFlightDistance(const int newFlightDistance)
+bool CFlightInfo::setFlightDistance(const int newFlightDistance)
 {
-	this->flightDistance = newFlightDistance;
+	if (newFlightDistance >= 0)
+	{
+		this->flightDistance = newFlightDistance;
+		return true;
+	}
+	return false;
 }
 
 // ===== Methods =====

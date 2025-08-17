@@ -27,10 +27,10 @@ public:
 
 
     // setters
-    void setFlightNumber(const int newFlightNum);
+    bool setFlightNumber(const int newFlightNum);
     void SetDest(const string newDestination);
-    void setFlightMinutes(const int newFlightMinutes);
-    void setFlightDistance(const int newFlightDistance);
+    bool setFlightMinutes(const int newFlightMinutes);
+    bool setFlightDistance(const int newFlightDistance);
     
 
     // methods 
