@@ -49,9 +49,8 @@ void CCrewMember::setMemberAddress(const CAddress& newAddress)
 void CCrewMember::Print() const
 {
 	cout << "Crew Member:\n";
-	cout << "   Member Name: " << this->memberName << "\n";
-	cout << "   Member Air Time: " << this->memberAirTime << "\n";
-	cout << "   Member Address: ";
+	cout << "Member Name: " << this->memberName << "\n";
+	cout << "Member Air Time: " << this->memberAirTime << "\n";
 	this->memberAddress.Print();
 	cout << "\n";
 }
