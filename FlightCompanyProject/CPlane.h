@@ -10,15 +10,18 @@ private:
     string planeModel;
     int numOfSeats;
 public:
-    CPlane(int planeIdentifier, const string& planeModel, int numOfSeats);
+    CPlane(int planeIdentifier, int numOfSeats, string planeModel);
+    //getters
     int getPlaneIdentifier() const;
     string getPlaneModel() const;
     int getNumOfSeats() const;
+    //setters
     void setPlaneIdentifier(int planeIdentifier);
     void setPlaneModel(string planeModel);
     void setNumOfSeats(int numOfSeats);
-    void print() const;
-    bool isEqual(const CPlane& other) const;
+    //misc
+    void Print() const;
+    bool IsEqual(const CPlane& other) const;
     ~CPlane();
 };
 
