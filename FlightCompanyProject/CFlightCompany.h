@@ -6,20 +6,25 @@ using namespace std;
 
 class CFlightCompany
 {
+
+private:
+    string companyName;
+
+
 public:
-    CFlightCompany();
+    CFlightCompany(const string& name);
+    CFlightCompany(const CFlightCompany& other);
     ~CFlightCompany();
+
+
+    // getters
+    string getCompanyName() const;
+
+    // setters
+    void setCompanyName(const string& newCompnayName);
+
+
+    // methods
+    void print() const;
+
 };
-
-
-// ===== CFlightCompany =====
-// members
-//
-// company name string
-//
-// methods
-//
-// ctor
-// get name
-// set name
-// print

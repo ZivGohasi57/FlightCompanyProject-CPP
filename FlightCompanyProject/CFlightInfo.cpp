@@ -53,22 +53,22 @@ int CFlightInfo::getFlightDistance() const
 }
 
 // ===== Setters =====
-void CFlightInfo::setFlightNumber(int newFlightNum)
+void CFlightInfo::setFlightNumber(const int newFlightNum)
 {
 	this->flightNumber = newFlightNum;
 }
 
-void CFlightInfo::setDestination(string newDestination)
+void CFlightInfo::setDestination(const string& newDestination)
 {
 	this->Destination = newDestination;
 }
 
-void CFlightInfo::setFlightMinutes(int newFlightMinutes)
+void CFlightInfo::setFlightMinutes(const int newFlightMinutes)
 {
 	this->flightMinutes = newFlightMinutes;
 }
 
-void CFlightInfo::setFlightDistance(int newFlightDistance)
+void CFlightInfo::setFlightDistance(const int newFlightDistance)
 {
 	this->flightDistance = newFlightDistance;
 }
@@ -83,7 +83,7 @@ bool CFlightInfo::IsEqual(const CFlightInfo& other) const
 	return false;
 }
 
-void CFlightInfo::print()
+void CFlightInfo::print() const
 {
 	cout << "Flight Info:\n";
 	cout << "   Flight Number: " << this->flightNumber << "\n";

@@ -35,7 +35,7 @@ CAddress CCrewMember::getMemberAddress() const
 }
 
 // ===== Setters =====
-void CCrewMember::setMemberName(const string newName)
+void CCrewMember::setMemberName(const string& newName)
 {
 	this->memberName = newName;
 }
