@@ -5,8 +5,16 @@ using namespace std;
 
 class CFlightInfo
 {
+
+private:
+    int flightNumber;
+    string Destination;
+    int flightMinutes;
+    int flightDistance;
+
+
 public:
-    CFlightInfo(const int flightNum , const string& Destination, const int flightMinutes, const int flightDistance);
+    CFlightInfo(const string Destination, const int flightNum, const int flightMinutes, const int flightDistance);
     CFlightInfo(const CFlightInfo& other);
     ~CFlightInfo();
 
@@ -19,23 +27,19 @@ public:
 
 
     // setters
-    void setFlightNumber(int newFlightNum);
-    void setDestination(string newDestination);
-    void setFlightMinutes(int newFlightMinutes);
-    void setFlightDistance(int newFlightDistance);
+    void setFlightNumber(const int newFlightNum);
+    void SetDest(const string newDestination);
+    void setFlightMinutes(const int newFlightMinutes);
+    void setFlightDistance(const int newFlightDistance);
     
 
     // methods 
     bool IsEqual(const CFlightInfo& other) const;
 
 
-    void print();
+    void Print() const;
 
 
-private:
-    int flightNumber;
-    string Destination;
-    int flightMinutes;
-    int flightDistance;
+
 };
 

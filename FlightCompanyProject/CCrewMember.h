@@ -6,8 +6,14 @@ using namespace std;
 
 class CCrewMember
 {
+
+private:
+    string memberName;
+    int memberAirTime;
+    CAddress memberAddress;
+
 public:
-    CCrewMember(const string& name, const CAddress& address, int airTime = 0);
+    CCrewMember(const string name, const CAddress& address, int airTime = 0);
     CCrewMember(const CCrewMember& other);
     ~CCrewMember();
 
@@ -23,34 +29,9 @@ public:
 
 
     // methods
-    void print() const;
-    void updateMemberAirTime(const int minutes);
-    bool isEqual(const CCrewMember& other) const;
+    void Print() const;
+    bool UpdateMinutes(const int minutes);
+    bool IsEqual(const CCrewMember& other) const;
 
-
-
-
-
-
-private:
-    string memberName;
-    int memberAirTime;
-    CAddress memberAddress;
 };
 
-// ===== CCrewMember =====
-// members
-//
-// name string
-// air time minutes int
-// address CAddress
-//
-// methods
-//
-// ctor (with and without air time)
-// update minutes (add minutes with validation)
-// set/get name
-// set/get address
-// get air time
-// print
-// is equal (compare by name)
