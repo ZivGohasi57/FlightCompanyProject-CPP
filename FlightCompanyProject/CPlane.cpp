@@ -32,9 +32,9 @@ void CPlane::setNumOfSeats(int numOfSeats) {
 //misc
 void CPlane::Print() const {
 	cout <<"Plane info:\n"
-		 << "Plane identifier:%d\n" << this->planeIdentifier
-		 << "Plane model:%s\n" << this->planeModel
-		 << "Number of seats on the plane:%d" << this->numOfSeats 
+		 << "Plane identifier:" << this->planeIdentifier << "\n"
+		 << "Plane model:" << this->planeModel << "\n"
+		 << "Number of seats on the plane:" << this->numOfSeats 
 		 << endl;
 }
 bool CPlane::IsEqual(const CPlane& other) const{
