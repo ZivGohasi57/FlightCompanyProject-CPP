@@ -6,7 +6,7 @@ using namespace std;
 class CFlightInfo
 {
 public:
-    CFlightInfo(int flightNum , string Destination, int flightMinutes, int flightDistance);
+    CFlightInfo(const int flightNum , const string& Destination, const int flightMinutes, const int flightDistance);
     CFlightInfo(const CFlightInfo& other);
     ~CFlightInfo();
 
