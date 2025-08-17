@@ -7,6 +7,7 @@ class CFlightInfo
 {
 public:
     CFlightInfo(int flightNum , string Destination, int flightMinutes, int flightDistance);
+    CFlightInfo(const CFlightInfo& other);
     ~CFlightInfo();
 
 
@@ -25,7 +26,7 @@ public:
     
 
     // methods 
-    bool isEqual(int flightNum1, int flightNum2);
+    bool IsEqual(const CFlightInfo& other) const;
 
 
     void print();
@@ -38,19 +39,3 @@ private:
     int flightDistance;
 };
 
-
-
-// ===== CFlightInfo =====
-// members
-//
-// flight number int
-// destination string
-// flight time minutes int
-// distance km int
-//
-// methods
-//
-// ctor
-// setters & getters
-// is equal (compare by flight number)
-// print
