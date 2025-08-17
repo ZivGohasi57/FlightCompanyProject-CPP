@@ -5,8 +5,17 @@ using namespace std;
 
 class CAddress
 {
+private:
+    string cityName;
+    string streetName;
+    int houseNumber;
 public:
-    CAddress();
+    CAddress(string cityName = "Tel Aviv", string streetName, int houseNumber);
+    string getCityName();
+    string getStreetName();
+    int getHouseNumber();
+    void print();
+    void updateAddress(string cityName, string streetName, int houseNumber);
     ~CAddress();
 };
 
@@ -23,5 +32,3 @@ public:
 // getters
 // print
 // update address
-
-
