@@ -3,7 +3,7 @@
 using namespace std;
 
 // ===== Constructors / Destructor =====
-CFlightCompany::CFlightCompany(const string& name)
+CFlightCompany::CFlightCompany(const string name)
 	: companyName(name)
 {
 }
@@ -24,13 +24,13 @@ string CFlightCompany::getCompanyName() const
 }
 
 // ===== Setters =====
-void CFlightCompany::setCompanyName(const string& newCompnayName)
+void CFlightCompany::SetName(const string newCompnayName)
 {
 	this->companyName = newCompnayName;
 }
 
 // ===== Methods =====
-void CFlightCompany::print() const
+void CFlightCompany::Print() const
 {
 	cout << "Company Name: " << this->companyName << "\n";
 }

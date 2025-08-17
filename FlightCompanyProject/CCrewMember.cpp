@@ -4,7 +4,7 @@
 using namespace std;
 
 // ===== Constructors / Destructor =====
-CCrewMember::CCrewMember(const string& name, const CAddress& address, int airTime) 
+CCrewMember::CCrewMember(const string name, const CAddress& address, int airTime) 
 	: memberName(name) , memberAirTime(airTime), memberAddress(address)
 {
 }
@@ -26,7 +26,7 @@ string CCrewMember::getMemberName() const
 
 int CCrewMember::getMemberAirTime() const
 {
-	return this->memberAirTime
+	return this->memberAirTime;
 }
 
 CAddress CCrewMember::getMemberAddress() const
@@ -35,7 +35,7 @@ CAddress CCrewMember::getMemberAddress() const
 }
 
 // ===== Setters =====
-void CCrewMember::setMemberName(const string& newName)
+void CCrewMember::setMemberName(const string newName)
 {
 	this->memberName = newName;
 }
@@ -46,23 +46,27 @@ void CCrewMember::setMemberAddress(const CAddress& newAddress)
 }
 
 // ===== Methods =====
-void CCrewMember::print() const
+void CCrewMember::Print() const
 {
 	cout << "Crew Member:\n";
 	cout << "   Member Name: " << this->memberName << "\n";
-	cout << "   Member Air Time" << this->memberAirTime << "\n";
-	cout << "   Member Address " << this->memberAddress.print() << "\n";
+	cout << "   Member Air Time: " << this->memberAirTime << "\n";
+	cout << "   Member Address: ";
+	this->memberAddress.print();
+	cout << "\n";
 }
 
-void CCrewMember::updateMemberAirTime(const int minutes)
+bool CCrewMember::UpdateMinutes(const int minutes)
 {
 	if (minutes > 0)
 	{
 		this->memberAirTime += minutes;	
+		return true;
 	}
+	return false;
 }
 
-bool CCrewMember::isEqual(const CCrewMember& other) const
+bool CCrewMember::IsEqual(const CCrewMember& other) const
 {
 	if (this->memberName == other.memberName) {
 		return true;

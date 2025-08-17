@@ -13,7 +13,7 @@ private:
     CAddress memberAddress;
 
 public:
-    CCrewMember(const string& name, const CAddress& address, int airTime = 0);
+    CCrewMember(const string name, const CAddress& address, int airTime = 0);
     CCrewMember(const CCrewMember& other);
     ~CCrewMember();
 
@@ -24,14 +24,14 @@ public:
     CAddress getMemberAddress() const;
 
     // setters
-    void setMemberName(const string& newName);
+    void setMemberName(const string newName);
     void setMemberAddress(const CAddress& newAddress);
 
 
     // methods
-    void print() const;
-    void updateMemberAirTime(const int minutes);
-    bool isEqual(const CCrewMember& other) const;
+    void Print() const;
+    bool UpdateMinutes(const int minutes);
+    bool IsEqual(const CCrewMember& other) const;
 
 };
 

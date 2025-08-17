@@ -12,7 +12,7 @@ private:
 
 
 public:
-    CFlightCompany(const string& name);
+    CFlightCompany(const string name);
     CFlightCompany(const CFlightCompany& other);
     ~CFlightCompany();
 
@@ -21,10 +21,10 @@ public:
     string getCompanyName() const;
 
     // setters
-    void setCompanyName(const string& newCompnayName);
+    void SetName(const string newCompnayName);
 
 
     // methods
-    void print() const;
+    void Print() const;
 
 };

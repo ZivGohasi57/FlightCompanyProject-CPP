@@ -14,7 +14,7 @@ private:
 
 
 public:
-    CFlightInfo(const int flightNum , const string& Destination, const int flightMinutes, const int flightDistance);
+    CFlightInfo(const int flightNum , const string Destination, const int flightMinutes, const int flightDistance);
     CFlightInfo(const CFlightInfo& other);
     ~CFlightInfo();
 
@@ -28,7 +28,7 @@ public:
 
     // setters
     void setFlightNumber(const int newFlightNum);
-    void setDestination(const string& newDestination);
+    void setDestination(const string newDestination);
     void setFlightMinutes(const int newFlightMinutes);
     void setFlightDistance(const int newFlightDistance);
     
@@ -37,7 +37,7 @@ public:
     bool IsEqual(const CFlightInfo& other) const;
 
 
-    void print() const;
+    void Print() const;
 
 
 

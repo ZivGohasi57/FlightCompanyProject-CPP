@@ -48,7 +48,7 @@ int main()
 			cout << "***** EQUALS *****" << endl;
 		else
 			cout << "***** NOT EQUALS *****" << endl;
-		5
+
 			cout << "***** Checking Address *****" << endl;
 		CAddress a(23, "Alenbi");
 		CAddress b(34, "Jafa", "Jerusalem");

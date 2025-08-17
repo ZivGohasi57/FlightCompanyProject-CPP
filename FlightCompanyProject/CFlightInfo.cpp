@@ -4,7 +4,7 @@
 using namespace std;
 
 // ===== Constructor & Destructor =====
-CFlightInfo::CFlightInfo(const int flightNum, const string& Destination, const int flightMinutes, const int flightDistance)
+CFlightInfo::CFlightInfo(const int flightNum, const string Destination, const int flightMinutes, const int flightDistance)
 {
 	this->flightNumber = flightNum;
 	this->Destination = Destination;
@@ -36,7 +36,7 @@ int CFlightInfo::getFlightNumber() const
 
 string CFlightInfo::getDestination() const
 {
-	return this->Destination
+	return this->Destination;
 
 }
 
@@ -58,7 +58,7 @@ void CFlightInfo::setFlightNumber(const int newFlightNum)
 	this->flightNumber = newFlightNum;
 }
 
-void CFlightInfo::setDestination(const string& newDestination)
+void CFlightInfo::setDestination(const string newDestination)
 {
 	this->Destination = newDestination;
 }
@@ -83,7 +83,7 @@ bool CFlightInfo::IsEqual(const CFlightInfo& other) const
 	return false;
 }
 
-void CFlightInfo::print() const
+void CFlightInfo::Print() const
 {
 	cout << "Flight Info:\n";
 	cout << "   Flight Number: " << this->flightNumber << "\n";
