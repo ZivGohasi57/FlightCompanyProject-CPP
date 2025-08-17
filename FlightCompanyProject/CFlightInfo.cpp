@@ -1,9 +1,10 @@
 #include "CFlightInfo.h"
 #include <iostream>
+
 using namespace std;
 
 // ===== Constructor & Destructor =====
-CFlightInfo::CFlightInfo(int flightNum, string Destination, int flightMinutes, int flightDistance)
+CFlightInfo::CFlightInfo(const int flightNum, const string& Destination, const int flightMinutes, const int flightDistance)
 {
 	this->flightNumber = flightNum;
 	this->Destination = Destination;
@@ -79,18 +80,15 @@ bool CFlightInfo::IsEqual(const CFlightInfo& other) const
 	{
 		return true;
 	}
-	else 
-	{
-		return false;
-	}
+	return false;
 }
 
 void CFlightInfo::print()
 {
 	cout << "Flight Info:\n";
-	cout << "   Flight Number: " + this->flightNumber + "\n";
-	cout << "   Flight Destination: " + this->Destination + "\n";
-	cout << "   Flight Minutes: " + this->flightMinutes + "\n";
-	cout << "   Flight Distance: " + this->flightDistance + "\n";
+	cout << "   Flight Number: " << this->flightNumber << "\n";
+	cout << "   Flight Destination: " << this->Destination << "\n";
+	cout << "   Flight Minutes: " << this->flightMinutes << "\n";
+	cout << "   Flight Distance: " << this->flightDistance << "\n";
 
 }
