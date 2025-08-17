@@ -58,7 +58,7 @@ void CFlightInfo::setFlightNumber(const int newFlightNum)
 	this->flightNumber = newFlightNum;
 }
 
-void CFlightInfo::setDestination(const string newDestination)
+void CFlightInfo::SetDest(const string newDestination)
 {
 	this->Destination = newDestination;
 }
