@@ -20,3 +20,6 @@ void CAddress::print() {
 	cout << "City name:%s, " << cityName << "Street name:%s, " << streetName << "House number:%d." <<
 		houseNumber << endl;
 }
+void CAddress::updateAddress(string cityName, string streetName, string houseNumber) {
+
+}
