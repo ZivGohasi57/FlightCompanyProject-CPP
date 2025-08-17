@@ -5,8 +5,17 @@ using namespace std;
 
 class CPlane
 {
+private:
+    int planeIdentifier;
+    string planeModel;
+    int numOfSeats;
 public:
-    CPlane();
+    CPlane(int planeIdentifier, string planeModel, int numOfSeats);
+    int getPlaneIdentifier();
+    string getPlaneModel();
+    int getNumOfSeats();
+    void print();
+    bool isEqual(int planeIdentifier);
     ~CPlane();
 };
 
