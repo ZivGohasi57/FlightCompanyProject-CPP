@@ -56,11 +56,10 @@ void CCrewMember::print() const
 
 void CCrewMember::updateMemberAirTime(const int minutes)
 {
-	if (minutes <= 0)
+	if (minutes > 0)
 	{
-		return;
+		this->memberAirTime += minutes;	
 	}
-	this->memberAirTime += minutes;
 }
 
 bool CCrewMember::isEqual(const CCrewMember& other) const
