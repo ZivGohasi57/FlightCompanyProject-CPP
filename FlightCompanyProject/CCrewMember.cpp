@@ -52,7 +52,7 @@ void CCrewMember::Print() const
 	cout << "   Member Name: " << this->memberName << "\n";
 	cout << "   Member Air Time: " << this->memberAirTime << "\n";
 	cout << "   Member Address: ";
-	this->memberAddress.print();
+	this->memberAddress.Print();
 	cout << "\n";
 }
 
