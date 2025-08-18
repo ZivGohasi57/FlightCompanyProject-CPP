@@ -3,8 +3,11 @@
 #include<iostream>
 #include<iomanip>
 using namespace std;
-CPlane::CPlane(const int pIdentifier, const int seatNum, const string pModel) :
-	planeIdentifier(pIdentifier), planeModel(pModel), numOfSeats(seatNum) {}
+CPlane::CPlane(const int pIdentifier, const int seatNum, const string pModel) {
+	setPlaneIdentifier(pIdentifier);
+	this->numOfSeats = seatNum;
+	this->planeModel = pModel;
+}
 
 CPlane::CPlane(const CPlane& other):
 	planeIdentifier(other.planeIdentifier), numOfSeats(other.numOfSeats), 
@@ -21,6 +24,7 @@ int CPlane::getNumOfSeats() const {
 }
 //setters
 void CPlane::setPlaneIdentifier(int planeIdentifier) {
+	if (planeIdentifier <= 0) this->planeIdentifier = -1; // if invaild
 	this->planeIdentifier = planeIdentifier;
 }
 void CPlane::setPlaneModel(string planeModel) {
