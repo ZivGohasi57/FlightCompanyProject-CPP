@@ -4,8 +4,11 @@
 #include <iomanip>
 using namespace std;
 
-CAddress::CAddress(const int hNumber, const string sName, const string cName) :
-	houseNumber(hNumber), streetName(sName), cityName(cName) {}
+CAddress::CAddress(const int hNumber, const string sName, const string cName) {
+	this->setHouseNumber(hNumber);
+	this->streetName = sName;
+	this->cityName = cName;
+}
 	
 CAddress::CAddress(const CAddress& other):
 	houseNumber(other.houseNumber), streetName(other.streetName), cityName(other.cityName){}
@@ -27,6 +30,7 @@ void CAddress::setStreetName(string streetName) {
 	this->streetName = streetName;
 }
 void CAddress::setHouseNumber(int houseNumber) {
+	if (houseNumber <= 0) this->houseNumber = -1;//if invaild 
 	this->houseNumber = houseNumber;
 }
 //misc
@@ -40,7 +44,7 @@ void CAddress::Print() const {
 void CAddress::UpdateAddress(const string cityName, const string streetName, const int houseNumber) {
 	this->cityName = cityName;
 	this->streetName = streetName;
-	this->houseNumber = houseNumber;
+	this->setHouseNumber(houseNumber);
 }
 CAddress::~CAddress() {
 	
