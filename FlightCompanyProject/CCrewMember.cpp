@@ -5,9 +5,8 @@ using namespace std;
 
 // ===== Constructors / Destructor =====
 CCrewMember::CCrewMember(const string name, const CAddress& address, int airTime) 
+	: memberName(name), memberAddress(address)
 {
-	this->memberName = name;
-	this->memberAddress = address;
 	setMemberAirTime(airTime);
 }
 

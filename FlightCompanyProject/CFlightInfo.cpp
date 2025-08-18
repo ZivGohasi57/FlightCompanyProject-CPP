@@ -5,8 +5,8 @@ using namespace std;
 
 // ===== Constructor & Destructor =====
 CFlightInfo::CFlightInfo(const string flightDest, const int flightNum, const int flightMin, const int flightDis)
+	: Destination(flightDest)
 {
-	this->Destination = flightDest;
 	setFlightNumber(flightNum);
 	setFlightMinutes(flightMin);
 	setFlightDistance(flightDis);
