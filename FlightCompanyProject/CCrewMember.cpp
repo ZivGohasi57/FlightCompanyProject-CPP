@@ -59,7 +59,7 @@ void CCrewMember::setMemberAirTime(const int airTime)
 // ===== Methods =====
 void CCrewMember::Print() const
 {
-	cout << "Crew Member: " << this->memberName 
+	cout << "Crewmember " << this->memberName 
 		<< " minutes " << this->memberAirTime << "\n";
 
 }
