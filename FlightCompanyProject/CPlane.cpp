@@ -35,11 +35,8 @@ void CPlane::setNumOfSeats(int numOfSeats) {
 }
 //misc
 void CPlane::Print() const {
-	cout <<"Plane info:\n"
-		 << "Plane identifier:" << this->planeIdentifier << "\n"
-		 << "Plane model:" << this->planeModel << "\n"
-		 << "Number of seats on the plane:" << this->numOfSeats 
-		 << endl;
+	cout <<"Plane " << planeIdentifier << " degem " << planeModel <<
+		" seats " << numOfSeats << endl;
 }
 bool CPlane::IsEqual(const CPlane& other) const{
 	return (this->planeIdentifier == other.planeIdentifier) ? 1: 0;

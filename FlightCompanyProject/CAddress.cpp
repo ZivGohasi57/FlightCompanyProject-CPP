@@ -35,11 +35,8 @@ void CAddress::setHouseNumber(int houseNumber) {
 }
 //misc
 void CAddress::Print() const {
-	cout << "Address info:\n" 
-		<< "House number: " << this->houseNumber << "\n"
-		<< "Street name: " << this->streetName << "\n"
-		<< "City name: " << this->cityName 
-		<< endl;
+	cout << this->streetName << " " << this->houseNumber <<
+		", " << this->cityName << endl;
 }
 void CAddress::UpdateAddress(const string cityName, const string streetName, const int houseNumber) {
 	this->cityName = cityName;
