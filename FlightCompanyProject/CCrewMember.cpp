@@ -5,8 +5,10 @@ using namespace std;
 
 // ===== Constructors / Destructor =====
 CCrewMember::CCrewMember(const string name, const CAddress& address, int airTime) 
-	: memberName(name) , memberAirTime(airTime), memberAddress(address)
 {
+	this->memberName = name;
+	this->memberAddress = address;
+	setMemberAirTime(airTime);
 }
 
 CCrewMember::CCrewMember(const CCrewMember& other)
@@ -43,6 +45,16 @@ void CCrewMember::setMemberName(const string newName)
 void CCrewMember::setMemberAddress(const CAddress& newAddress)
 {
 	this->memberAddress = newAddress;
+}
+
+void CCrewMember::setMemberAirTime(const int airTime)
+{
+	if (airTime > 0) 
+	{
+		this->memberAirTime = airTime;
+		return;
+	}
+	this->memberAirTime = 0;
 }
 
 // ===== Methods =====

@@ -26,6 +26,7 @@ public:
     // setters
     void setMemberName(const string newName);
     void setMemberAddress(const CAddress& newAddress);
+    void setMemberAirTime(const int airTime);
 
 
     // methods
