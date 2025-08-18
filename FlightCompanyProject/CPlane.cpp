@@ -4,7 +4,7 @@
 #include<iomanip>
 using namespace std;
 CPlane::CPlane(const int pIdentifier, const int seatNum, const string pModel) {
-	this->setPlaneIdentifier(pIdentifier);
+	setPlaneIdentifier(pIdentifier);
 	this->numOfSeats = seatNum;
 	this->planeModel = pModel;
 }

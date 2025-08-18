@@ -5,7 +5,7 @@
 using namespace std;
 
 CAddress::CAddress(const int hNumber, const string sName, const string cName) {
-	this->setHouseNumber(hNumber);
+	setHouseNumber(hNumber);
 	this->streetName = sName;
 	this->cityName = cName;
 }
@@ -44,7 +44,7 @@ void CAddress::Print() const {
 void CAddress::UpdateAddress(const string cityName, const string streetName, const int houseNumber) {
 	this->cityName = cityName;
 	this->streetName = streetName;
-	this->setHouseNumber(houseNumber);
+	setHouseNumber(houseNumber);
 }
 CAddress::~CAddress() {
 	
