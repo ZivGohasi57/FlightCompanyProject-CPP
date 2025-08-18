@@ -4,10 +4,10 @@
 #include <iomanip>
 using namespace std;
 
-CAddress::CAddress(const int hNumber, const string sName, const string cName) {
+CAddress::CAddress(const int hNumber, const string sName, const string cName)
+: streetName(sName), cityName(cName)
+{
 	setHouseNumber(hNumber);
-	this->streetName = sName;
-	this->cityName = cName;
 }
 	
 CAddress::CAddress(const CAddress& other):

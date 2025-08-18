@@ -3,10 +3,10 @@
 #include<iostream>
 #include<iomanip>
 using namespace std;
-CPlane::CPlane(const int pIdentifier, const int seatNum, const string pModel) {
+CPlane::CPlane(const int pIdentifier, const int seatNum, const string pModel):
+numOfSeats(seatNum), planeModel(pModel)
+{
 	setPlaneIdentifier(pIdentifier);
-	this->numOfSeats = seatNum;
-	this->planeModel = pModel;
 }
 
 CPlane::CPlane(const CPlane& other):
