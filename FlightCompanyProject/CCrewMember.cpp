@@ -59,11 +59,9 @@ void CCrewMember::setMemberAirTime(const int airTime)
 // ===== Methods =====
 void CCrewMember::Print() const
 {
-	cout << "Crew Member:\n";
-	cout << "Member Name: " << this->memberName << "\n";
-	cout << "Member Air Time: " << this->memberAirTime << "\n";
-	this->memberAddress.Print();
-	cout << "\n";
+	cout << "Crew Member: " << this->memberName 
+		<< " minutes " << this->memberAirTime << "\n";
+
 }
 
 bool CCrewMember::UpdateMinutes(const int minutes)

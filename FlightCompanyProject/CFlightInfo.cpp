@@ -100,9 +100,8 @@ bool CFlightInfo::IsEqual(const CFlightInfo& other) const
 
 void CFlightInfo::Print() const
 {
-	cout << "Flight Info:\n";
-	cout << "Flight Number: " << this->flightNumber << "\n";
-	cout << "Flight Destination: " << this->Destination << "\n";
-	cout << "Flight Minutes: " << this->flightMinutes << "\n";
-	cout << "Flight Distance: " << this->flightDistance << "\n";
+	cout << "Flight Info dest: " << this->Destination 
+		<< " Number " << this->flightNumber 
+		<< " minutes " << this->flightMinutes 
+		<< " KM " << this->flightDistance << "\n";
 }
