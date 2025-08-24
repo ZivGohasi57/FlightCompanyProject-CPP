@@ -14,42 +14,57 @@ numOfSeats(seatNum), planeModel(pModel)
 
 CPlane::CPlane(const CPlane& other):
 	planeIdentifier(other.planeIdentifier), numOfSeats(other.numOfSeats), 
-	planeModel(other.planeModel){}
+	planeModel(other.planeModel)
+{
+}
 
-CPlane::~CPlane() {
-
+CPlane::~CPlane()
+{
 }
 
 // ===== Getters =====
-int CPlane::getPlaneIdentifier() const {
+int CPlane::getPlaneIdentifier() const 
+{
 	return this->planeIdentifier;
 }
-string CPlane::getPlaneModel() const {
+
+string CPlane::getPlaneModel() const 
+{
 	return this->planeModel;
 }
-int CPlane::getNumOfSeats() const {
+
+int CPlane::getNumOfSeats() const 
+{
 	return this->numOfSeats;
 }
 
 
 // ===== Setters =====
-void CPlane::setPlaneIdentifier(int planeIdentifier) {
+void CPlane::setPlaneIdentifier(int planeIdentifier) 
+{
 	if (planeIdentifier <= 0) this->planeIdentifier = -1; // if invaild
 	this->planeIdentifier = planeIdentifier;
 }
-void CPlane::setPlaneModel(string planeModel) {
+
+void CPlane::setPlaneModel(string planeModel) 
+{
 	this->planeModel = planeModel;
 }
-void CPlane::setNumOfSeats(int numOfSeats) {
+
+void CPlane::setNumOfSeats(int numOfSeats) 
+{
 	this->numOfSeats = numOfSeats;
 }
 
 
 // ===== Methods =====
-void CPlane::Print() const {
+void CPlane::Print() const 
+{
 	cout <<"Plane " << planeIdentifier << " degem " << planeModel <<
 		" seats " << numOfSeats << endl;
 }
-bool CPlane::IsEqual(const CPlane& other) const{
+
+bool CPlane::IsEqual(const CPlane& other) const
+{
 	return (this->planeIdentifier == other.planeIdentifier) ? 1: 0;
 }

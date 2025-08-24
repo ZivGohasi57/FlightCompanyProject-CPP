@@ -13,34 +13,46 @@ CAddress::CAddress(const int hNumber, const string sName, const string cName)
 }
 	
 CAddress::CAddress(const CAddress& other):
-	houseNumber(other.houseNumber), streetName(other.streetName), cityName(other.cityName){}
+	houseNumber(other.houseNumber), streetName(other.streetName), cityName(other.cityName)
+{
+}
 
-CAddress::~CAddress() {
-
+CAddress::~CAddress() 
+{
 }
 
 
 // ===== Getters =====
-string CAddress::getCityName() const {
+string CAddress::getCityName() const 
+{
 	return this->cityName;
 }
-string CAddress::getStreetName() const {
+
+string CAddress::getStreetName() const 
+{
 	return this->streetName;
 }
-int CAddress::getHouseNumber() const {
+
+int CAddress::getHouseNumber() const 
+{
 	return this->houseNumber;
 }
 
 
 
 // ===== Setters =====
-void CAddress::setCityName(string cityName) {
+void CAddress::setCityName(string cityName) 
+{
 	this->cityName = cityName;
 }
-void CAddress::setStreetName(string streetName) {
+
+void CAddress::setStreetName(string streetName) 
+{
 	this->streetName = streetName;
 }
-void CAddress::setHouseNumber(int houseNumber) {
+
+void CAddress::setHouseNumber(int houseNumber) 
+{
 	if (houseNumber <= 0) this->houseNumber = -1;//if invaild 
 	this->houseNumber = houseNumber;
 }
@@ -48,11 +60,14 @@ void CAddress::setHouseNumber(int houseNumber) {
 
 
 // ===== Methods =====
-void CAddress::Print() const {
+void CAddress::Print() const 
+{
 	cout << this->streetName << " " << this->houseNumber <<
 		", " << this->cityName << endl;
 }
-void CAddress::UpdateAddress(const string cityName, const string streetName, const int houseNumber) {
+
+void CAddress::UpdateAddress(const string cityName, const string streetName, const int houseNumber) 
+{
 	this->cityName = cityName;
 	this->streetName = streetName;
 	setHouseNumber(houseNumber);
