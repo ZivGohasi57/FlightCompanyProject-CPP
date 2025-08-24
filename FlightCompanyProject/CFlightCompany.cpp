@@ -32,5 +32,5 @@ void CFlightCompany::SetName(const string newCompnayName)
 // ===== Methods =====
 void CFlightCompany::Print() const
 {
-	cout << "Flight company: " << this->companyName << "\n";
+	cout << "Flight company: " << this->companyName << endl;
 }

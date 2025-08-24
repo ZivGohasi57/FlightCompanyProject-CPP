@@ -103,5 +103,5 @@ void CFlightInfo::Print() const
 	cout << "Flight Info dest: " << this->Destination 
 		<< " Number " << this->flightNumber 
 		<< " minutes " << this->flightMinutes 
-		<< " KM " << this->flightDistance << "\n";
+		<< " KM " << this->flightDistance << endl;
 }
