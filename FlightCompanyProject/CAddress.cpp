@@ -4,6 +4,8 @@
 #include <iomanip>
 using namespace std;
 
+
+// ===== Constructor & Destructor =====
 CAddress::CAddress(const int hNumber, const string sName, const string cName)
 : streetName(sName), cityName(cName)
 {
@@ -12,7 +14,13 @@ CAddress::CAddress(const int hNumber, const string sName, const string cName)
 	
 CAddress::CAddress(const CAddress& other):
 	houseNumber(other.houseNumber), streetName(other.streetName), cityName(other.cityName){}
-//getters
+
+CAddress::~CAddress() {
+
+}
+
+
+// ===== Getters =====
 string CAddress::getCityName() const {
 	return this->cityName;
 }
@@ -22,7 +30,10 @@ string CAddress::getStreetName() const {
 int CAddress::getHouseNumber() const {
 	return this->houseNumber;
 }
-//setters
+
+
+
+// ===== Setters =====
 void CAddress::setCityName(string cityName) {
 	this->cityName = cityName;
 }
@@ -33,7 +44,10 @@ void CAddress::setHouseNumber(int houseNumber) {
 	if (houseNumber <= 0) this->houseNumber = -1;//if invaild 
 	this->houseNumber = houseNumber;
 }
-//misc
+
+
+
+// ===== Methods =====
 void CAddress::Print() const {
 	cout << this->streetName << " " << this->houseNumber <<
 		", " << this->cityName << endl;
@@ -42,7 +56,4 @@ void CAddress::UpdateAddress(const string cityName, const string streetName, con
 	this->cityName = cityName;
 	this->streetName = streetName;
 	setHouseNumber(houseNumber);
-}
-CAddress::~CAddress() {
-	
 }

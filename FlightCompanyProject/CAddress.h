@@ -9,33 +9,25 @@ private:
     string cityName;
     string streetName;
     int houseNumber;
+
+
 public:
     CAddress(const int houseNumber, const string streetName, const string cityName = "Tel Aviv");
     CAddress(const CAddress& other);
-    //getters
+
+    // getters
     string getCityName() const;
     string getStreetName() const;
     int getHouseNumber() const;
-    //setters
+
+    // setters
     void setCityName(string cityName);
     void setStreetName(string streetName);
     void setHouseNumber(int houseNumber);
-    //misc
+
+    // methods
     void Print() const;
     void UpdateAddress(const string cityName, const string streetName, const int houseNumber);
     ~CAddress();
 };
 
-// ===== CAddress =====
-// members
-//
-// city string
-// street name string
-// house number int
-//
-// methods
-//
-// ctor
-// getters
-// print
-// update address
