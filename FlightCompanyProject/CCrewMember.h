@@ -6,6 +6,7 @@ using namespace std;
 
 class CCrewMember
 {
+    friend ostream& operator<<(ostream& os, const CCrewMember& member);
 
 private:
     string memberName;
@@ -30,9 +31,9 @@ public:
 
 
     // methods
-    void Print() const;
-    bool UpdateMinutes(const int minutes);
-    bool IsEqual(const CCrewMember& other) const;
+    void operator=(const CCrewMember& other);
+    bool operator+=(const int minutes);
+    bool operator=(const CCrewMember& other) const;
 
 };
 

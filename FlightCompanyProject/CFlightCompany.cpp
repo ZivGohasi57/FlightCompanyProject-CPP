@@ -30,7 +30,8 @@ void CFlightCompany::SetName(const string newCompnayName)
 }
 
 // ===== Methods =====
-void CFlightCompany::Print() const
+ostream& operator<<(ostream& os, const CFlightCompany& company)
 {
-	cout << "Flight company: " << this->companyName << endl;
+	os << "Flight company: " << company.companyName << endl;
+	return os;
 }

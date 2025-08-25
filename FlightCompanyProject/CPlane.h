@@ -5,6 +5,7 @@ using namespace std;
 
 class CPlane
 {
+    friend ostream& operator<<(ostream& os, const CPlane& plane);
 private:
     int planeIdentifier;
     string planeModel;
@@ -26,7 +27,7 @@ public:
     void setNumOfSeats(int numOfSeats);
 
     // methods
-    void Print() const;
-    bool IsEqual(const CPlane& other) const;
+    bool operator==(const CPlane& other) const;
+    void operator=(const CPlane& other);
     ~CPlane();
 };

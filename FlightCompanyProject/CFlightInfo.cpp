@@ -89,7 +89,7 @@ bool CFlightInfo::setFlightDistance(const int newFlightDistance)
 }
 
 // ===== Methods =====
-bool CFlightInfo::IsEqual(const CFlightInfo& other) const
+bool CFlightInfo::operator==(const CFlightInfo& other) const
 {
 	if (this->flightNumber == other.flightNumber) 
 	{
@@ -97,11 +97,18 @@ bool CFlightInfo::IsEqual(const CFlightInfo& other) const
 	}
 	return false;
 }
+void CFlightInfo::operator=(const CFlightInfo& other) {
+	this->Destination = other.Destination;
+	this->flightDistance = other.flightDistance;
+	this->flightMinutes = other.flightMinutes;
+	this->flightNumber = other.flightNumber;
+}
 
-void CFlightInfo::Print() const
+ostream& operator<<(ostream& os, const CFlightInfo& info)
 {
-	cout << "Flight Info dest: " << this->Destination 
-		<< " Number " << this->flightNumber 
-		<< " minutes " << this->flightMinutes 
-		<< " KM " << this->flightDistance << endl;
+	os << "Flight Info dest: " << info.Destination
+		<< " Number " << info.flightNumber
+		<< " minutes " << info.flightMinutes
+		<< " KM " << info.flightDistance << endl;
+	return os;
 }

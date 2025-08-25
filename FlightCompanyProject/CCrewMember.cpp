@@ -57,14 +57,19 @@ void CCrewMember::setMemberAirTime(const int airTime)
 }
 
 // ===== Methods =====
-void CCrewMember::Print() const
+ostream& operator<<(ostream& os, const CCrewMember& member)
 {
-	cout << "Crewmember " << this->memberName 
-		<< " minutes " << this->memberAirTime << endl;
-
+	os << "Crewmember " << member.memberName
+		<< " minutes " << member.memberAirTime << endl;
+	return os;
+}
+void CCrewMember::operator=(const CCrewMember& other) {
+	this->memberAddress = other.memberAddress;
+	this->memberAirTime = other.memberAirTime;
+	this->memberName = other.memberName;
 }
 
-bool CCrewMember::UpdateMinutes(const int minutes)
+bool CCrewMember::operator+=(const int minutes)
 {
 	if (minutes > 0)
 	{
@@ -74,7 +79,7 @@ bool CCrewMember::UpdateMinutes(const int minutes)
 	return false;
 }
 
-bool CCrewMember::IsEqual(const CCrewMember& other) const
+bool CCrewMember::operator=(const CCrewMember& other) const
 {
 	if (this->memberName == other.memberName) {
 		return true;

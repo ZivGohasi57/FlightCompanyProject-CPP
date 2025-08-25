@@ -5,6 +5,7 @@ using namespace std;
 
 class CFlightInfo
 {
+    friend ostream& operator<<(ostream& os, const CFlightInfo& info);
 
 private:
     int flightNumber;
@@ -34,12 +35,7 @@ public:
     
 
     // methods 
-    bool IsEqual(const CFlightInfo& other) const;
-
-
-    void Print() const;
-
-
-
+    bool operator==(const CFlightInfo& other) const;
+    void operator=(const CFlightInfo& other);
 };
 

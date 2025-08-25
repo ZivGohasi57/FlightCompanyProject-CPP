@@ -6,6 +6,7 @@ using namespace std;
 
 class CFlightCompany
 {
+    friend ostream& operator<<(ostream& os, const CFlightCompany& company);
 
 private:
     string companyName;
@@ -23,8 +24,5 @@ public:
     // setters
     void SetName(const string newCompnayName);
 
-
-    // methods
-    void Print() const;
 
 };

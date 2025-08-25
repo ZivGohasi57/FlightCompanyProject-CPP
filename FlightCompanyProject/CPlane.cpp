@@ -58,13 +58,19 @@ void CPlane::setNumOfSeats(int numOfSeats)
 
 
 // ===== Methods =====
-void CPlane::Print() const 
+ostream& operator <<(ostream& os, const CPlane& plane) 
 {
-	cout <<"Plane " << planeIdentifier << " degem " << planeModel <<
-		" seats " << numOfSeats << endl;
+	os <<"Plane " << plane.planeIdentifier << " degem " << plane.planeModel <<
+		" seats " << plane.numOfSeats << endl;
+	return os;
+}
+void CPlane::operator=(const CPlane& other) {
+	this->planeModel = other.planeModel;
+	this->planeIdentifier = other.planeIdentifier;
+	this->numOfSeats = other.numOfSeats;
 }
 
-bool CPlane::IsEqual(const CPlane& other) const
+bool CPlane::operator==(const CPlane& other) const
 {
 	return (this->planeIdentifier == other.planeIdentifier) ? 1: 0;
 }

@@ -60,10 +60,17 @@ void CAddress::setHouseNumber(int houseNumber)
 
 
 // ===== Methods =====
-void CAddress::Print() const 
+ostream& operator<<(ostream& os, const CAddress& address) 
 {
-	cout << this->streetName << " " << this->houseNumber <<
-		", " << this->cityName << endl;
+	os << address.streetName << " " << address.houseNumber <<
+		", " << address.cityName << endl;
+	return os;
+}
+
+void CAddress:: operator=(const CAddress& other) {
+	this->cityName = other.cityName;
+	this->streetName = other.streetName;
+	this->houseNumber = other.houseNumber;
 }
 
 void CAddress::UpdateAddress(const string cityName, const string streetName, const int houseNumber) 

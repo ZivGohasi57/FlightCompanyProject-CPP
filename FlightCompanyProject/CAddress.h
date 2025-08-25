@@ -5,6 +5,7 @@ using namespace std;
 
 class CAddress
 {
+    friend ostream& operator<<(ostream& os, const CAddress& address);
 private:
     string cityName;
     string streetName;
@@ -26,8 +27,8 @@ public:
     void setHouseNumber(int houseNumber);
 
     // methods
-    void Print() const;
     void UpdateAddress(const string cityName, const string streetName, const int houseNumber);
+    void operator=(const CAddress& other);
     ~CAddress();
 };
 
