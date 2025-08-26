@@ -57,6 +57,18 @@ bool CFlight::operator==(const CFlight& other) const
 	return info == other.info;
 }
 
+CFlight& CFlight::operator=(const CFlight& other)
+{
+    if (this != &other) {
+        info = other.info;
+        plane = other.plane;
+        crewCount = other.crewCount;
+        for (int i = 0; i < crewCount; i++)
+            crew[i] = other.crew[i];
+    }
+    return *this;
+}
+
 ostream& operator<<(ostream& os, const CFlight& f)
 {
     os << "Flight " << f.info;

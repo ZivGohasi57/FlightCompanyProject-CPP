@@ -33,5 +33,8 @@ public:
 	bool operator+(CCrewMember* meber);
 
 	bool operator==(const CFlight& other) const;
+
+	CFlight& operator=(const CFlight& other);
+
 };
 
