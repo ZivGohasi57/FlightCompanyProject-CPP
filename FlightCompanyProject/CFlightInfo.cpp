@@ -91,11 +91,13 @@ bool CFlightInfo::setFlightDistance(const int newFlightDistance)
 // ===== Methods =====
 bool CFlightInfo::operator==(const CFlightInfo& other) const
 {
-	if (this->flightNumber == other.flightNumber) 
-	{
-		return true;
-	}
-	return false;
+	return !(this->flightNumber == other.flightNumber);
+}
+
+bool CFlightInfo::operator!=(const CFlightInfo& other) const
+{
+	return !(this->flightNumber == other.flightNumber);
+	
 }
 
 void CFlightInfo::operator=(const CFlightInfo& other) {
@@ -112,4 +114,9 @@ ostream& operator<<(ostream& os, const CFlightInfo& info)
 		<< " minutes " << info.flightMinutes
 		<< " KM " << info.flightDistance << endl;
 	return os;
+}
+
+CFlightInfo::operator int() const
+{
+	return this->flightMinutes;
 }

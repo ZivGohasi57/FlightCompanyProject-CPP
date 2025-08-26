@@ -36,6 +36,8 @@ public:
 
     // methods 
     bool operator==(const CFlightInfo& other) const;
+    bool operator!=(const CFlightInfo& other) const;
     void operator=(const CFlightInfo& other);
+    operator int() const;
 };
 
