@@ -9,6 +9,8 @@ class CCrewMember
     friend ostream& operator<<(ostream& os, const CCrewMember& member);
 
 private:
+    static int s_crewMemberNumber;
+    int crewMemberNumber;
     string memberName;
     int memberAirTime;
     CAddress memberAddress;
@@ -32,8 +34,8 @@ public:
 
     // methods
     void operator=(const CCrewMember& other);
-    bool operator+=(const int minutes);
     bool operator==(const CCrewMember& other) const;
+    bool operator+=(const int minutes);
 
 };
 

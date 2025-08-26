@@ -3,9 +3,12 @@
 
 using namespace std;
 
+
+int CCrewMember::s_crewMemberNumber = 1000;
+
 // ===== Constructors / Destructor =====
 CCrewMember::CCrewMember(const string name, const CAddress& address, int airTime) 
-	: memberName(name), memberAddress(address)
+	: crewMemberNumber(s_crewMemberNumber++), memberName(name), memberAddress(address)
 {
 	setMemberAirTime(airTime);
 }
@@ -67,6 +70,10 @@ void CCrewMember::operator=(const CCrewMember& other) {
 	this->memberAddress = other.memberAddress;
 	this->memberAirTime = other.memberAirTime;
 	this->memberName = other.memberName;
+}
+
+bool CCrewMember::operator==(const CCrewMember& other) const {
+	return crewMemberNumber == other.crewMemberNumber;
 }
 
 bool CCrewMember::operator+=(const int minutes)
