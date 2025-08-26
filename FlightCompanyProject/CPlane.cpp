@@ -64,6 +64,7 @@ ostream& operator <<(ostream& os, const CPlane& plane)
 		" seats " << plane.numOfSeats << endl;
 	return os;
 }
+
 void CPlane::operator=(const CPlane& other) {
 	this->planeModel = other.planeModel;
 	this->planeIdentifier = other.planeIdentifier;

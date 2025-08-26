@@ -97,6 +97,7 @@ bool CFlightInfo::operator==(const CFlightInfo& other) const
 	}
 	return false;
 }
+
 void CFlightInfo::operator=(const CFlightInfo& other) {
 	this->Destination = other.Destination;
 	this->flightDistance = other.flightDistance;

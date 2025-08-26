@@ -24,5 +24,6 @@ public:
     // setters
     void SetName(const string newCompnayName);
 
+    void operator=(const CFlightCompany& other);
 
 };

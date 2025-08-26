@@ -33,7 +33,7 @@ public:
     // methods
     void operator=(const CCrewMember& other);
     bool operator+=(const int minutes);
-    bool operator=(const CCrewMember& other) const;
+    bool operator==(const CCrewMember& other) const;
 
 };
 

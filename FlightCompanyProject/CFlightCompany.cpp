@@ -35,3 +35,8 @@ ostream& operator<<(ostream& os, const CFlightCompany& company)
 	os << "Flight company: " << company.companyName << endl;
 	return os;
 }
+
+
+void CFlightCompany:: operator=(const CFlightCompany& other) {
+	this->companyName = other.companyName;
+}

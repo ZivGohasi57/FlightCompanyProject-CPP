@@ -11,7 +11,7 @@ using namespace std;
 #include <iostream>
 #include "CAddress.h"
 
-void main()
+int main()
 {
 	cout << endl << "Checking Address" << endl;
 	CAddress a(0, NULL, NULL);
@@ -128,6 +128,6 @@ void main()
 
 	delete pDelta;
 
-	system("pause");
+	return 0;
 }
 

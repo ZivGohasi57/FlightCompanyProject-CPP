@@ -79,10 +79,4 @@ bool CCrewMember::operator+=(const int minutes)
 	return false;
 }
 
-bool CCrewMember::operator=(const CCrewMember& other) const
-{
-	if (this->memberName == other.memberName) {
-		return true;
-	}
-	return false;
-}
+
