@@ -1,6 +1,5 @@
 #include "CFlightCompany.h"
 #include <iostream>
-using namespace std;
 
 // ===== Constructors / Destructor =====
 CFlightCompany::CFlightCompany(const string name)

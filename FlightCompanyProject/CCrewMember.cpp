@@ -1,7 +1,6 @@
 #include "CCrewMember.h"
 #include <iostream>
 
-using namespace std;
 
 
 int CCrewMember::s_crewMemberNumber = 1000;

@@ -181,6 +181,7 @@
     <ClCompile Include="CFlightCompany.cpp" />
     <ClCompile Include="CFlightInfo.cpp" />
     <ClCompile Include="CPlane.cpp" />
+    <ClCompile Include="CFlight.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -189,6 +190,7 @@
     <ClInclude Include="CFlightCompany.h" />
     <ClInclude Include="CFlightInfo.h" />
     <ClInclude Include="CPlane.h" />
+    <ClInclude Include="CFlight.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

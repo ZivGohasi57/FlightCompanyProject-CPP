@@ -1,8 +1,6 @@
 #include "CFlightInfo.h"
 #include <iostream>
 
-using namespace std;
-
 // ===== Constructor & Destructor =====
 CFlightInfo::CFlightInfo(const string flightDest, const int flightNum, const int flightMin, const int flightDis)
 	: Destination(flightDest)

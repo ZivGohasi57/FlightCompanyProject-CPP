@@ -18,13 +18,10 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CFlight.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="CAddress.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CPlane.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CFlightInfo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CCrewMember.cpp">
@@ -33,9 +30,15 @@
     <ClCompile Include="CFlightCompany.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CFlightInfo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CPlane.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CAddress.h">
+    <ClInclude Include="CFlight.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CPlane.h">
@@ -44,10 +47,13 @@
     <ClInclude Include="CFlightInfo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CCrewMember.h">
+    <ClInclude Include="CFlightCompany.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CFlightCompany.h">
+    <ClInclude Include="CAddress.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CCrewMember.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

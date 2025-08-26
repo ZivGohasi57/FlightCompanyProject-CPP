@@ -2,7 +2,6 @@
 #include<string>
 #include<iostream>
 #include<iomanip>
-using namespace std;
 
 
 int CPlane::s_nextIdentifier = 100;
