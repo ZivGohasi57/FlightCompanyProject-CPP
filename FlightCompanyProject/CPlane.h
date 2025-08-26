@@ -14,7 +14,7 @@ private:
 
 
 public:
-    CPlane(const int planeIdentifier, const int numOfSeats, const string planeModel);
+    CPlane(const int numOfSeats, const string planeModel);
     CPlane(const CPlane& other);
 
     // getters

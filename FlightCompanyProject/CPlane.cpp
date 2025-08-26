@@ -8,10 +8,9 @@ using namespace std;
 int CPlane::s_nextIdentifier = 100;
 
 // ===== Constructor & Destructor =====
-CPlane::CPlane(const int pIdentifier, const int seatNum, const string pModel):
-numOfSeats(seatNum), planeModel(pModel)
+CPlane::CPlane(const int seatNum, const string pModel):
+planeIdentifier(s_nextIdentifier++), numOfSeats(seatNum), planeModel(pModel)
 {
-	setPlaneIdentifier(pIdentifier);
 }
 
 CPlane::CPlane(const CPlane& other):
