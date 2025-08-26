@@ -6,6 +6,7 @@ using namespace std;
 class CAddress
 {
     friend ostream& operator<<(ostream& os, const CAddress& address);
+    friend istream& operator>>(std::istream& is, CAddress& a);
 private:
     string cityName;
     string streetName;
@@ -29,6 +30,10 @@ public:
     // methods
     void UpdateAddress(const string cityName, const string streetName, const int houseNumber);
     void operator=(const CAddress& other);
+    bool operator==(const CAddress& other) const;
+    bool operator!=(const CAddress& other) const;
+    string GetCurrentAddress()
+
     ~CAddress();
 };
 

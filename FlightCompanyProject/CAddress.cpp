@@ -67,6 +67,13 @@ ostream& operator<<(ostream& os, const CAddress& address)
 	return os;
 }
 
+
+istream& operator>>(std::istream& is, CAddress& a)
+{
+	is >> a.cityName >> a.streetName >> a.houseNumber;
+	return is;
+}
+
 void CAddress:: operator=(const CAddress& other) {
 	this->cityName = other.cityName;
 	this->streetName = other.streetName;
@@ -79,3 +86,20 @@ void CAddress::UpdateAddress(const string cityName, const string streetName, con
 	this->streetName = streetName;
 	setHouseNumber(houseNumber);
 }
+
+bool CAddress::operator==(const CAddress& other) const
+{
+	return cityName == other.cityName && streetName == other.streetName && houseNumber == other.houseNumber;
+}
+
+bool CAddress::operator!=(const CAddress& other) const
+{
+	return !(cityName == other.cityName && streetName == other.streetName && houseNumber == other.houseNumber);
+}
+
+string CAddress::GetCurrentAddress() 
+{
+	return streetName + " " + to_string(houseNumber) + ", " + cityName + "\n";
+}
+
+
