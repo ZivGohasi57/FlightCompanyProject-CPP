@@ -7,6 +7,7 @@ class CPlane
 {
     friend ostream& operator<<(ostream& os, const CPlane& plane);
 private:
+    static int s_nextIdentifier;
     int planeIdentifier;
     string planeModel;
     int numOfSeats;
@@ -29,5 +30,7 @@ public:
     // methods
     bool operator==(const CPlane& other) const;
     void operator=(const CPlane& other);
+    CPlane& operator++();
+    CPlane operator++(int);
     ~CPlane();
 };

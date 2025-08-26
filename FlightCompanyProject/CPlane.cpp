@@ -5,6 +5,8 @@
 using namespace std;
 
 
+int CPlane::s_nextIdentifier = 100;
+
 // ===== Constructor & Destructor =====
 CPlane::CPlane(const int pIdentifier, const int seatNum, const string pModel):
 numOfSeats(seatNum), planeModel(pModel)
@@ -75,3 +77,18 @@ bool CPlane::operator==(const CPlane& other) const
 {
 	return (this->planeIdentifier == other.planeIdentifier) ? 1: 0;
 }
+
+CPlane& CPlane::operator++()
+{
+	++numOfSeats;
+	return *this;
+}
+
+CPlane CPlane::operator++(int)
+{
+	CPlane old(*this);
+	++(*this);
+	return old;
+}
+
+
