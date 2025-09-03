@@ -36,6 +36,11 @@ CAddress CCrewMember::getMemberAddress() const
 {
 	return this->memberAddress;
 }
+ 
+int CCrewMember::getMemberId() const
+{
+	return s_crewMemberNumber;
+}
 
 // ===== Setters =====
 void CCrewMember::setMemberName(const string newName)

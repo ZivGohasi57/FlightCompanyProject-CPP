@@ -25,6 +25,7 @@ public:
     string getDestination() const;
     int getFlightMinutes() const;
     int getFlightDistance()const;
+    int GetFNum();
 
 
     // setters

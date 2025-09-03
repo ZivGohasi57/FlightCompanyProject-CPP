@@ -85,6 +85,9 @@ bool CFlightInfo::setFlightDistance(const int newFlightDistance)
 	this->flightDistance = -1;
 	return false;
 }
+int CFlightInfo::GetFNum() {
+	return flightNumber;
+}
 
 // ===== Methods =====
 bool CFlightInfo::operator==(const CFlightInfo& other) const

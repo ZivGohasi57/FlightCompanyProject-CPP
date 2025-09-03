@@ -25,6 +25,7 @@ public:
     string getMemberName() const;
     int getMemberAirTime() const;
     CAddress getMemberAddress() const;
+    int getMemberId() const;
 
     // setters
     void setMemberName(const string newName);
