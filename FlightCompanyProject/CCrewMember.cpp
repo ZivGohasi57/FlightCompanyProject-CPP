@@ -12,6 +12,9 @@ CCrewMember::CCrewMember(const string name, const CAddress& address, int airTime
 	setMemberAirTime(airTime);
 }
 
+CCrewMember::CCrewMember(const string name):
+	CCrewMember(name, 0){}
+
 CCrewMember::CCrewMember(const CCrewMember& other)
 	: memberName(other.memberName), memberAirTime(other.memberAirTime), memberAddress(other.memberAddress)
 {

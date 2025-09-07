@@ -17,6 +17,7 @@ private:
 
 public:
     CCrewMember(const string name, const CAddress& address, int airTime = 0);
+    CCrewMember(const string name);
     CCrewMember(const CCrewMember& other);
     ~CCrewMember();
 
