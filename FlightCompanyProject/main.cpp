@@ -6,6 +6,7 @@ using namespace std;
 #include "CPlane.h"
 #include "CFlight.h"
 #include "CFlightCompany.h"
+#include "CCrewMember.h"
 
 
 #include <iostream>

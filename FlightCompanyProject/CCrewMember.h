@@ -9,13 +9,14 @@ class CCrewMember
     friend ostream& operator<<(ostream& os, const CCrewMember& member);
 
 private:
-    static int s_crewMemberNumber;
+    static int s_nextId;
     int crewMemberNumber;
     string memberName;
     int memberAirTime;
     CAddress memberAddress;
 
 public:
+    static const int START_ID = 1000;
     CCrewMember(const string name, const CAddress& address, int airTime = 0);
     CCrewMember(const string name);
     CCrewMember(const CCrewMember& other);

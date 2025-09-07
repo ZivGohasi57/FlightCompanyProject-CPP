@@ -32,7 +32,8 @@ public:
     void operator=(const CAddress& other);
     bool operator==(const CAddress& other) const;
     bool operator!=(const CAddress& other) const;
-    string GetCurrentAddress()
+    string GetCurrentAddress();
+
 
     ~CAddress();
 };

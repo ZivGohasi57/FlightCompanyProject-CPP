@@ -3,11 +3,11 @@
 
 
 
-int CCrewMember::s_crewMemberNumber = 1000;
+int CCrewMember::s_nextId = CCrewMember::START_ID;
 
 // ===== Constructors / Destructor =====
 CCrewMember::CCrewMember(const string name, const CAddress& address, int airTime) 
-	: crewMemberNumber(s_crewMemberNumber++), memberName(name), memberAddress(address)
+	: crewMemberNumber(s_nextId++), memberName(name), memberAddress(address)
 {
 	setMemberAirTime(airTime);
 }
@@ -42,7 +42,7 @@ CAddress CCrewMember::getMemberAddress() const
  
 int CCrewMember::getMemberId() const
 {
-	return s_crewMemberNumber;
+	return crewMemberNumber;
 }
 
 // ===== Setters =====
