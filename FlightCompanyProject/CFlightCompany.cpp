@@ -1,4 +1,4 @@
-#include "CFlightCompany.h"
+﻿#include "CFlightCompany.h"
 #include <iostream>
 
 // ===== Constructors / Destructor =====
@@ -38,19 +38,22 @@ CFlightCompany::CFlightCompany(const CFlightCompany& other)
 	}
 }
 
-bool CFlightCompany::AddCrewMember(CCrewMember member) {
+bool CFlightCompany::AddCrewMember(const CCrewMember& member) {
 	for (int i = 0; i < crewCount; i++) {
-		if (member.getMemberName() == crewMembers[i]->getMemberName()) {
-			return 0;
+		if (crewMembers[i]->getMemberId() == member.getMemberId()) {
+			return false;
 		}
 	}
-	*crewMembers[crewCount] = member;
-	return 1;
+	if (crewCount >= MAX_CREWS) return false;
+	crewMembers[crewCount] = new CCrewMember(member);
+	crewCount++;
+	return true;
 }
 
-bool CFlightCompany::AddPlane(CPlane plane) {
+
+bool CFlightCompany::AddPlane(const CPlane& plane) {
 	for (int i = 0; i < planeCount; i++) {
-		if (plane.getPlaneIdentifier() == planes[i]->getPlaneIdentifier()) {
+		if (planes[i]->getPlaneIdentifier() == plane.getPlaneIdentifier()) {
 			return false;
 		}
 	}
@@ -61,14 +64,19 @@ bool CFlightCompany::AddPlane(CPlane plane) {
 }
 
 
-bool CFlightCompany::AddFlight(CFlight flight) {
+bool CFlightCompany::AddFlight(const CFlight& flight) {
 	for (int i = 0; i < flightCount; i++) {
 		if (flight == *flights[i]) {
-			return 0;
+			return false;
 		}
 	}
-	*flights[flightCount] = flight;
+	if (flightCount >= MAX_FLIGHT) return false;
+	flights[flightCount] = new CFlight(flight);
+	flightCount++;
+	return true;
 }
+
+
 bool CFlightCompany::AddCrewToFlight(int flightNumber, int memberId) {
 	CCrewMember* member = nullptr;
 	for (int i = 0; i < crewCount; i++) {
@@ -77,40 +85,45 @@ bool CFlightCompany::AddCrewToFlight(int flightNumber, int memberId) {
 			break;
 		}
 	}
-	if (!member) return false; 
-
+	if (!member) return false;
 	for (int i = 0; i < flightCount; i++) {
 		if (flights[i]->GetFlightInfo().getFlightNumber() == flightNumber) {
-			return (*flights[i] + member); 
+			return (*flights[i] + member);
 		}
 	}
-	return false; 
+	return false;
 }
 
+
 CPlane* CFlightCompany::GetPlane(int index) {
-	if (index > MAX_PLANES || index < 0) {
-		return nullptr;
-	}
+	if (index >= planeCount || index < 0) return nullptr;
 	return planes[index];
 }
+
+
+
 void CFlightCompany::Print(ostream& out) {
-	out << "Flight company:" << companyName
-		<< "\n" << "there are " << crewCount << " Crew members:" << endl;
+	out << "Flight company: " << companyName << endl;
+	out << "There are " << crewCount << " Crew members:" << endl;
 	for (int i = 0; i < crewCount; i++) {
-		out << crewMembers[i];
+		if (crewMembers[i]) out << *crewMembers[i];
 	}
-	out << "there are " << planeCount << " Planes:" << endl;
+	out << "There are " << planeCount << " Planes:" << endl;
 	for (int i = 0; i < planeCount; i++) {
-		out << planes[i];
+		if (planes[i]) out << *planes[i];
 	}
-	out << "there are " << flightCount << " Flights:" << endl;
+	out << "There are " << flightCount << " Flights:" << endl;
 	for (int i = 0; i < flightCount; i++) {
-		out << flights[i];
+		if (flights[i]) out << *flights[i];
 	}
 }
+
 
 CFlightCompany::~CFlightCompany()
 {
+	for (int i = 0; i < crewCount; i++) delete crewMembers[i];
+	for (int i = 0; i < planeCount; i++) delete planes[i];
+	for (int i = 0; i < flightCount; i++) delete flights[i];
 }
 
 // ===== Getters =====
@@ -133,6 +146,19 @@ ostream& operator<<(ostream& os, const CFlightCompany& company)
 }
 
 
-void CFlightCompany:: operator=(const CFlightCompany& other) {
-	this->companyName = other.companyName;
+void CFlightCompany::operator=(const CFlightCompany& other) {
+	if (this == &other) return;
+	companyName = other.companyName;
+	for (int i = 0; i < crewCount; i++) delete crewMembers[i];
+	for (int i = 0; i < planeCount; i++) delete planes[i];
+	for (int i = 0; i < flightCount; i++) delete flights[i];
+	crewCount = other.crewCount;
+	planeCount = other.planeCount;
+	flightCount = other.flightCount;
+	for (int i = 0; i < crewCount; i++)
+		crewMembers[i] = new CCrewMember(*other.crewMembers[i]);
+	for (int i = 0; i < planeCount; i++)
+		planes[i] = new CPlane(*other.planes[i]);
+	for (int i = 0; i < flightCount; i++)
+		flights[i] = new CFlight(*other.flights[i]);
 }

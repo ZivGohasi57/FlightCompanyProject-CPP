@@ -92,14 +92,14 @@ int CFlightInfo::GetFNum() {
 // ===== Methods =====
 bool CFlightInfo::operator==(const CFlightInfo& other) const
 {
-	return !(this->flightNumber == other.flightNumber);
+	return this->flightNumber == other.flightNumber;
 }
 
 bool CFlightInfo::operator!=(const CFlightInfo& other) const
 {
-	return !(this->flightNumber == other.flightNumber);
-	
+	return this->flightNumber != other.flightNumber;
 }
+
 
 void CFlightInfo::operator=(const CFlightInfo& other) {
 	this->Destination = other.Destination;

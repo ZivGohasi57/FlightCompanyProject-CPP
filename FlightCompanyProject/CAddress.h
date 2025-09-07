@@ -14,7 +14,7 @@ private:
 
 
 public:
-    CAddress(const int houseNumber = 1, const string streetName = "Hertzel", const string cityName = "Tel Aviv");
+    CAddress(const int houseNumber = 1, const char* streetName = "Hertzel", const char* cityName = "Tel Aviv");
     CAddress(const CAddress& other);
 
     // getters

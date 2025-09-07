@@ -25,9 +25,9 @@ private:
 public:
     CFlightCompany(const string name);
     CFlightCompany(const CFlightCompany& other);
-    bool AddCrewMember(CCrewMember member);
-    bool AddPlane(CPlane plane);
-    bool AddFlight(CFlight flight);
+    bool AddCrewMember(const CCrewMember& member);
+    bool AddPlane(const CPlane& plane);
+    bool AddFlight(const CFlight& flight);
     bool AddCrewToFlight(int flightNumber, int memberId);
     CPlane* GetPlane(int index);
     void Print(ostream& out);

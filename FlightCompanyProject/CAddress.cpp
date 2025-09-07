@@ -6,9 +6,22 @@
 
 
 // ===== Constructor & Destructor =====
-CAddress::CAddress(const int hNumber, const string sName, const string cName)
-: streetName(sName), cityName(cName)
+CAddress::CAddress(const int hNumber, const char* sName, const char* cName)
 {
+	if (sName != nullptr) {
+		this->streetName = std::string(sName);
+	}
+	else {
+		this->streetName = "";
+	}
+
+	if (cName != nullptr) {
+		this->cityName = std::string(cName);
+	}
+	else {
+		this->cityName = "";
+	}
+
 	setHouseNumber(hNumber);
 }
 	
@@ -62,15 +75,16 @@ void CAddress::setHouseNumber(int houseNumber)
 // ===== Methods =====
 ostream& operator<<(ostream& os, const CAddress& address) 
 {
-	os << address.streetName << " " << address.houseNumber <<
-		", " << address.cityName << endl;
+	os << address.cityName << " " << address.houseNumber <<
+		" " << address.streetName << endl;
 	return os;
 }
 
 
 istream& operator>>(std::istream& is, CAddress& a)
 {
-	is >> a.cityName >> a.streetName >> a.houseNumber;
+	cout << "Please enter house number street name and city name" << endl;
+	is >> a.houseNumber >> a.cityName >> a.streetName;
 	return is;
 }
 

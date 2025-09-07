@@ -19,6 +19,7 @@ public:
     static const int START_ID = 1000;
     CCrewMember(const string name, const CAddress& address, int airTime = 0);
     CCrewMember(const string name);
+    CCrewMember(const string name, int airTime);
     CCrewMember(const CCrewMember& other);
     ~CCrewMember();
 

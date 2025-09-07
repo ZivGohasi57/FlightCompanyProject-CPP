@@ -12,11 +12,23 @@ CCrewMember::CCrewMember(const string name, const CAddress& address, int airTime
 	setMemberAirTime(airTime);
 }
 
-CCrewMember::CCrewMember(const string name):
-	CCrewMember(name, 0){}
+CCrewMember::CCrewMember(const string name)
+	: CCrewMember(name, CAddress(), 0) {
+}
+
+
+CCrewMember::CCrewMember(const string name, int airTime)
+	: crewMemberNumber(s_nextId++), memberName(name), memberAddress(CAddress())
+{
+	setMemberAirTime(airTime);
+}
+
 
 CCrewMember::CCrewMember(const CCrewMember& other)
-	: memberName(other.memberName), memberAirTime(other.memberAirTime), memberAddress(other.memberAddress)
+	: crewMemberNumber(other.crewMemberNumber),
+	memberName(other.memberName),
+	memberAirTime(other.memberAirTime),
+	memberAddress(other.memberAddress)
 {
 }
 
@@ -74,9 +86,11 @@ ostream& operator<<(ostream& os, const CCrewMember& member)
 	return os;
 }
 void CCrewMember::operator=(const CCrewMember& other) {
-	this->memberAddress = other.memberAddress;
-	this->memberAirTime = other.memberAirTime;
-	this->memberName = other.memberName;
+	if (this == &other) return;
+	crewMemberNumber = other.crewMemberNumber;
+	memberAddress = other.memberAddress;
+	memberAirTime = other.memberAirTime;
+	memberName = other.memberName;
 }
 
 bool CCrewMember::operator==(const CCrewMember& other) const {
