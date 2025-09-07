@@ -3,14 +3,41 @@
 
 // ===== Constructors / Destructor =====
 CFlightCompany::CFlightCompany(const string name)
-	: companyName(name)
+	: companyName(name), crewCount(0), planeCount(0), flightCount(0)
 {
+	for (int i = 0; i < MAX_CREWS; i++) crewMembers[i] = nullptr;
+	for (int i = 0; i < MAX_PLANES; i++) planes[i] = nullptr;
+	for (int i = 0; i < MAX_FLIGHT; i++) flights[i] = nullptr;
 }
 
 CFlightCompany::CFlightCompany(const CFlightCompany& other)
-	: companyName(other.companyName)
+	: companyName(other.companyName), crewCount(other.crewCount),
+	planeCount(other.planeCount), flightCount(other.flightCount)
 {
+	
+	for (int i = 0; i < MAX_CREWS; i++)
+		crewMembers[i] = nullptr;
+	for (int i = 0; i < MAX_PLANES; i++)
+		planes[i] = nullptr;
+	for (int i = 0; i < MAX_FLIGHT; i++)
+		flights[i] = nullptr;
+
+	
+	for (int i = 0; i < crewCount; i++) {
+		crewMembers[i] = new CCrewMember(*other.crewMembers[i]);
+	}
+
+	
+	for (int i = 0; i < planeCount; i++) {
+		planes[i] = new CPlane(*other.planes[i]);
+	}
+
+	
+	for (int i = 0; i < flightCount; i++) {
+		flights[i] = new CFlight(*other.flights[i]);
+	}
 }
+
 bool CFlightCompany::AddCrewMember(CCrewMember member) {
 	for (int i = 0; i < crewCount; i++) {
 		if (member.getMemberName() == crewMembers[i]->getMemberName()) {
@@ -24,11 +51,15 @@ bool CFlightCompany::AddCrewMember(CCrewMember member) {
 bool CFlightCompany::AddPlane(CPlane plane) {
 	for (int i = 0; i < planeCount; i++) {
 		if (plane.getPlaneIdentifier() == planes[i]->getPlaneIdentifier()) {
-			return 0;
+			return false;
 		}
 	}
-	*planes[planeCount] = plane;
+	if (planeCount >= MAX_PLANES) return false;
+	planes[planeCount] = new CPlane(plane);
+	planeCount++;
+	return true;
 }
+
 
 bool CFlightCompany::AddFlight(CFlight flight) {
 	for (int i = 0; i < flightCount; i++) {
@@ -39,16 +70,23 @@ bool CFlightCompany::AddFlight(CFlight flight) {
 	*flights[flightCount] = flight;
 }
 bool CFlightCompany::AddCrewToFlight(int flightNumber, int memberId) {
-	CCrewMember* member;
+	CCrewMember* member = nullptr;
 	for (int i = 0; i < crewCount; i++) {
-		if (crewMembers[i]->getMemberId() == memberId) member = crewMembers[i];
-	}
-	for (int i = 0; i < flightCount; i++) {
-		if (flights[i]->GetFlightInfo().getFlightNumber() == flightNumber) {
-			*flights[i] + member;
+		if (crewMembers[i]->getMemberId() == memberId) {
+			member = crewMembers[i];
+			break;
 		}
 	}
+	if (!member) return false; 
+
+	for (int i = 0; i < flightCount; i++) {
+		if (flights[i]->GetFlightInfo().getFlightNumber() == flightNumber) {
+			return (*flights[i] + member); 
+		}
+	}
+	return false; 
 }
+
 CPlane* CFlightCompany::GetPlane(int index) {
 	if (index > MAX_PLANES || index < 0) {
 		return nullptr;
