@@ -107,4 +107,9 @@ bool CCrewMember::operator+=(const int minutes)
 	return false;
 }
 
+void CCrewMember::Print(ostream& os) const {
+	os << "Crewmember " << getMemberName()
+		<< " minutes " << getMemberAirTime() << endl;
+}
+
 
