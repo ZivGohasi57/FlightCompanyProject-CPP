@@ -19,10 +19,7 @@ public:
     CPlane(const CPlane& other);
     virtual ~CPlane();
 
-    virtual CPlane* Clone() const
-    {
-        return new CPlane(*this);
-    }
+    virtual CPlane* Clone() const { return new CPlane(*this); }
 
     int getPlaneIdentifier() const;
     string getPlaneModel() const;

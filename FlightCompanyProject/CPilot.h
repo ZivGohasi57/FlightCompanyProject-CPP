@@ -3,9 +3,11 @@
 #include "CAddress.h"
 #include <string>
 #include <iostream>
+
 using namespace std;
 
-class CPilot : public CCrewMember {
+class CPilot : public CCrewMember
+{
     friend ostream& operator<<(ostream& os, const CPilot& pilot);
 
 private:
@@ -21,9 +23,8 @@ public:
     const CAddress* getHome() const;
     void setIsCaptain(bool captain);
     void setHome(const CAddress* addr);
+
     CCrewMember* Clone() const override { return new CPilot(*this); }
-
-
 
     void GetPresent() const override;
     void GetUniform() const override;
@@ -31,6 +32,5 @@ public:
 
     bool operator==(const CPilot& other) const;
     bool operator+=(int minutes) override;
-    void Print(ostream& os) const;
-
+    void Print(ostream& os) const override;
 };
