@@ -1,8 +1,12 @@
 #include "CFlight.h"
-#include "Cpilot.h"   // CPilot
-#include "CCargo.h"   // CCargo (CPlane subclass)
-#include <typeinfo>
-#include <iostream>
+#include "Cpilot.h"
+#if __has_include("CSeniorHost.h")
+#include "CSeniorHost.h"
+#define HAS_SENIOR_HOST 1
+#else
+#define HAS_SENIOR_HOST 0
+#endif
+#include "CCargo.h"
 
 CFlight::CFlight(const CFlightInfo& flightInfo, CPlane* flightPlane)
 	: info(flightInfo), plane(flightPlane), crewCount(0)
@@ -98,49 +102,35 @@ ostream& operator<<(ostream& os, const CFlight& f)
 
 bool CFlight::TakeOff() const
 {
-    // 1) Plane must be assigned
-    if (!plane) {
-        return false;
-    }
+    if (!plane) return false;
 
-    // 2) Determine if this is a cargo flight (plane is CCargo)
-    const bool isCargo = (dynamic_cast<CCargo*>(plane) != nullptr);
+    const bool isCargo = (dynamic_cast<const CCargo*>(plane) != nullptr);
 
-    // 3) Analyze crew composition
     int pilots = 0;
-    int seniorHosts = 0; // counted only if your project has CSeniorHost
+#if HAS_SENIOR_HOST
+    int seniorHosts = 0;
+#endif
 
     for (int i = 0; i < crewCount; ++i) {
         CCrewMember* m = crew[i];
         if (!m) continue;
 
-        if (dynamic_cast<CPilot*>(m)) {
-            ++pilots;
-            continue;
-        }
-        // Count senior hosts only if the type exists in your project
-        if (dynamic_cast<CSeniorHost*>(m)) {
-            ++seniorHosts;
-            continue;
-        }
+        if (dynamic_cast<CPilot*>(m)) { ++pilots; continue; }
+#if HAS_SENIOR_HOST
+        if (dynamic_cast<CSeniorHost*>(m)) { ++seniorHosts; continue; }
+#endif
     }
 
-    // 4) Validate rules
     if (isCargo) {
-        // Cargo: at least one pilot
-        if (pilots < 1) {
-            return false;
-        }
+        if (pilots < 1) return false;         // cargo: at least one pilot
     }
     else {
-        // Passenger: exactly one pilot; if there is a senior host, at most one
-        if (pilots != 1) {
-            return false;
-        }
-        if (seniorHosts > 1) {
-            return false;
-        }
+        if (pilots != 1) return false;        // passenger: exactly one pilot
+#if HAS_SENIOR_HOST
+        if (seniorHosts > 1) return false;    // at most one senior host
+#endif
     }
 
     return true;
 }
+

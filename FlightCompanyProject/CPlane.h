@@ -32,5 +32,5 @@ public:
     void operator=(const CPlane& other);
     CPlane& operator++();
     CPlane operator++(int);
-    ~CPlane();
+    virtual ~CPlane();
 };

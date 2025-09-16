@@ -22,7 +22,7 @@ public:
     CCrewMember(const string name, int airTime);
     CCrewMember(const CCrewMember& other);
     virtual void Print(std::ostream& os) const;
-    ~CCrewMember();
+    virtual ~CCrewMember();
 
 
     // getters
