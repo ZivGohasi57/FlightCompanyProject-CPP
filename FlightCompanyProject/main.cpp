@@ -4,11 +4,11 @@
 using namespace std;
 
 #include "CPlane.h"
-#include "FlightInfo.h"
-#include "CrewMember.h"
-#include "Flight.h"
-#include "FlightCompany.h"
-#include "address.h"
+#include "CFlightInfo.h"
+#include "CcrewMember.h"
+#include "CFlight.h"
+#include "CFlightCompany.h"
+#include "Caddress.h"
 #include "Pilot.h"
 #include "Cargo.h"
 #include "Host.h"
