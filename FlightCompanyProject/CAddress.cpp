@@ -5,7 +5,6 @@
 
 using namespace std;
 
-// ===== Constructor & Destructor =====
 CAddress::CAddress(const int hNumber, const char* sName, const char* cName)
 {
     if (sName != nullptr)
@@ -38,8 +37,6 @@ CAddress::~CAddress()
 {
 }
 
-
-// ===== Getters =====
 string CAddress::getCityName() const
 {
     return this->cityName;
@@ -55,8 +52,6 @@ int CAddress::getHouseNumber() const
     return this->houseNumber;
 }
 
-
-// ===== Setters =====
 void CAddress::setCityName(string cityName)
 {
     this->cityName = cityName;
@@ -71,7 +66,7 @@ void CAddress::setHouseNumber(int houseNumber)
 {
     if (houseNumber <= 0)
     {
-        this->houseNumber = -1; // if invalid
+        this->houseNumber = -1;
     }
     else
     {
@@ -79,8 +74,6 @@ void CAddress::setHouseNumber(int houseNumber)
     }
 }
 
-
-// ===== Methods =====
 ostream& operator<<(ostream& os, const CAddress& a)
 {
     os << a.streetName << ' ' << a.houseNumber << "  " << a.cityName;

@@ -17,23 +17,19 @@ private:
 public:
     CAddress(const int houseNumber = 1, const char* streetName = "Hertzel", const char* cityName = "Tel Aviv");
     CAddress(const CAddress& other);
+    ~CAddress();
 
-    // getters
     string getCityName() const;
     string getStreetName() const;
     int getHouseNumber() const;
 
-    // setters
     void setCityName(string cityName);
     void setStreetName(string streetName);
     void setHouseNumber(int houseNumber);
 
-    // methods
     void UpdateAddress(const string cityName, const string streetName, const int houseNumber);
     void operator=(const CAddress& other);
     bool operator==(const CAddress& other) const;
     bool operator!=(const CAddress& other) const;
     string GetCurrentAddress();
-
-    ~CAddress();
 };
