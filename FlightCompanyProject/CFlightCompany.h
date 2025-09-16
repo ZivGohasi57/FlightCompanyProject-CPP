@@ -37,7 +37,8 @@ public:
     void NotifyPilotsSimulator() const;
     void DistributePresents() const;
     void UpdateUniforms() const;
-    bool Takeoff(int flightNumber);                
+    bool Takeoff(int flightNumber);     
+    CFlight* GetFlightByNum(int flightNumber) const;
     ~CFlightCompany();
 
 

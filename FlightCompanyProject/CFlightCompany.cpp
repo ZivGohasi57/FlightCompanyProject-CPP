@@ -293,3 +293,12 @@ bool CFlightCompany::Takeoff(int flightNumber) {
 	// (If you later add virtual hooks like plane->OnTakeoff() / member->OnTakeoff(), call them here.)
 	return true;
 }
+CFlight* CFlightCompany::GetFlightByNum(int flightNumber) const {
+	for (int i = 0; i < flightCount; ++i) {
+		if (flights[i] &&
+			flights[i]->GetFlightInfo().getFlightNumber() == flightNumber) { // :contentReference[oaicite:2]{index=2}:contentReference[oaicite:3]{index=3}
+			return flights[i];
+		}
+	}
+	return nullptr;
+}
