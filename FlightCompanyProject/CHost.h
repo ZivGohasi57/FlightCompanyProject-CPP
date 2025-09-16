@@ -3,6 +3,9 @@
 #include "CCrewMember.h"
 #include <iosfwd>
 
+using namespace std;
+
+
 class CHost : public CCrewMember
 {
 public:

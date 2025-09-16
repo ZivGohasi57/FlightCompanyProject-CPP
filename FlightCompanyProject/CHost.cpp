@@ -1,8 +1,6 @@
 #include "CHost.h"
 #include <iostream>
 
-using namespace std;
-
 CHost::CHost(const char* name, eType type)
     : CCrewMember(name), m_type(type) {
 }
