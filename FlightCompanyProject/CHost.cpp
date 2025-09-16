@@ -1,12 +1,16 @@
 #include "CHost.h"
 #include <iostream>
 
+using namespace std;
+
 CHost::CHost(const char* name, eType type)
-    : CCrewMember(name), m_type(type) {
+    : CCrewMember(name), m_type(type)
+{
 }
 
 CHost::CHost(const CHost& other)
-    : CCrewMember(other), m_type(other.m_type) {
+    : CCrewMember(other), m_type(other.m_type)
+{
 }
 
 CHost::~CHost() = default;
@@ -21,14 +25,23 @@ const CHost& CHost::operator=(const CHost& other)
     return *this;
 }
 
+CHost::eType CHost::GetType() const
+{
+    return m_type;
+}
+
 const char* CHost::TypeToStr(eType t)
 {
     switch (t)
     {
-    case eRegular:  return "Regular";
-    case eSuper:    return "Super";
-    case eCalcelan: return "Calaelan";
-    default:        return "Regular";
+    case eRegular:
+        return "Regular";
+    case eSuper:
+        return "Super";
+    case eCalcelan:
+        return "Calaelan";
+    default:
+        return "Regular";
     }
 }
 
@@ -47,5 +60,11 @@ void CHost::GetPresent() const
 
 void CHost::GetUniform() const
 {
-    cout << getMemberName() << ": I think the new uniform is very nice!" << endl;
+    cout << getMemberName()
+        << ": I think the new uniform is very nice!" << endl;
+}
+
+CCrewMember* CHost::Clone() const
+{
+    return new CHost(*this);
 }

@@ -1,10 +1,8 @@
 ﻿#pragma once
-
 #include "CCrewMember.h"
-#include <iosfwd>
+#include <iostream>
 
 using namespace std;
-
 
 class CHost : public CCrewMember
 {
@@ -18,13 +16,13 @@ public:
 
     const CHost& operator=(const CHost& other);
 
-    eType GetType() const { return m_type; }
+    eType GetType() const;
 
-    void Print(std::ostream& os) const;
-    void GetPresent() const;
-    void GetUniform() const;
+    void Print(ostream& os) const override;
+    void GetPresent() const override;
+    void GetUniform() const override;
 
-    CCrewMember* Clone() const { return new CHost(*this); }
+    CCrewMember* Clone() const override;
 
 private:
     static const char* TypeToStr(eType t);
