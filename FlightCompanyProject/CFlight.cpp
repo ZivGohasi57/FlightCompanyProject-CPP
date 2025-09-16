@@ -1,12 +1,8 @@
 #include "CFlight.h"
-#include "Cpilot.h"
-#if __has_include("CSeniorHost.h")
-#include "CSeniorHost.h"
-#define HAS_SENIOR_HOST 1
-#else
-#define HAS_SENIOR_HOST 0
-#endif
-#include "CCargo.h"
+#include "Cpilot.h"   // CPilot
+#include "CCargo.h"   // CCargo (CPlane subclass)
+#include <typeinfo>
+#include <iostream>
 
 CFlight::CFlight(const CFlightInfo& flightInfo, CPlane* flightPlane)
 	: info(flightInfo), plane(flightPlane), crewCount(0)
