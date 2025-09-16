@@ -25,4 +25,7 @@ public:
     int getMaxVolume() const { return maxVolume; }
     int getLoadedWeight() const { return loadedWeightKg; }
     int getLoadedVolume() const { return loadedVolume; }
+    CPlane* Clone() const override { return new CCargo(*this); }
+
+
 };

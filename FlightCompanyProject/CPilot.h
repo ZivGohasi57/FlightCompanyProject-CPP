@@ -21,12 +21,16 @@ public:
     const CAddress* getHome() const;
     void setIsCaptain(bool captain);
     void setHome(const CAddress* addr);
+    CCrewMember* Clone() const override { return new CPilot(*this); }
+
+
 
     void GetPresent() const override;
     void GetUniform() const override;
     void GoToSimulator() const;
 
     bool operator==(const CPilot& other) const;
-    bool operator+=(int minutes);
+    bool operator+=(int minutes) override;
     void Print(ostream& os) const;
+
 };

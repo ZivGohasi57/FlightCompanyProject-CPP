@@ -16,6 +16,8 @@ private:
 public:
     CPlane(const int numOfSeats, const string planeModel);
     CPlane(const CPlane& other);
+    virtual CPlane* Clone() const { return new CPlane(*this); }
+
 
     // getters
     int getPlaneIdentifier() const;

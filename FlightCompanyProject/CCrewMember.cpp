@@ -79,12 +79,11 @@ void CCrewMember::setMemberAirTime(const int airTime)
 }
 
 // ===== Methods =====
-ostream& operator<<(ostream& os, const CCrewMember& member)
-{
-	os << "Crewmember " << member.memberName
-		<< " minutes " << member.memberAirTime << endl;
+ostream& operator<<(ostream& os, const CCrewMember& member) {
+	member.Print(os);       
 	return os;
 }
+
 void CCrewMember::operator=(const CCrewMember& other) {
 	if (this == &other) return;
 	crewMemberNumber = other.crewMemberNumber;

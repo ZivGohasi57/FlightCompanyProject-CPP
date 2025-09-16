@@ -43,27 +43,21 @@ CFlightCompany::CFlightCompany(const CFlightCompany& other)
 }
 
 bool CFlightCompany::AddCrewMember(const CCrewMember& member) {
-	for (int i = 0; i < crewCount; i++) {
-		if (crewMembers[i]->getMemberId() == member.getMemberId()) {
+	for (int i = 0; i < crewCount; ++i)
+		if (crewMembers[i]->getMemberId() == member.getMemberId())
 			return false;
-		}
-	}
 	if (crewCount >= MAX_CREWS) return false;
-	crewMembers[crewCount] = new CCrewMember(member);
-	crewCount++;
+	crewMembers[crewCount++] = member.Clone();
 	return true;
 }
 
 
 bool CFlightCompany::AddPlane(const CPlane& plane) {
-	for (int i = 0; i < planeCount; i++) {
-		if (planes[i]->getPlaneIdentifier() == plane.getPlaneIdentifier()) {
+	for (int i = 0; i < planeCount; ++i)
+		if (planes[i]->getPlaneIdentifier() == plane.getPlaneIdentifier())
 			return false;
-		}
-	}
 	if (planeCount >= MAX_PLANES) return false;
-	planes[planeCount] = new CPlane(plane);
-	planeCount++;
+	planes[planeCount++] = plane.Clone();
 	return true;
 }
 
@@ -186,24 +180,18 @@ int CFlightCompany::GetCargoCount() const {
 	return cnt;
 }
 
-// --- NotifyPilotsSimulator() ---
-void CFlightCompany::PilotsToSimulator() const {
-	for (int i = 0; i < crewCount; ++i) {
-		if (auto* p = dynamic_cast<CPilot*>(crewMembers[i])) {
-			p->GoToSimulator();
-		}
-	}
-}
 
 void CFlightCompany::CrewGetPresent() const {
+	for (int i = 0; i < crewCount; ++i) if (crewMembers[i]) crewMembers[i]->GetPresent();
+}
+void CFlightCompany::CrewGetUniform() const {
+	for (int i = 0; i < crewCount; ++i) if (crewMembers[i]) crewMembers[i]->GetUniform();
+}
+void CFlightCompany::PilotsToSimulator() const {
 	for (int i = 0; i < crewCount; ++i)
-		if (crewMembers[i]) crewMembers[i]->GetPresent();
+		if (auto* p = dynamic_cast<CPilot*>(crewMembers[i])) p->GoToSimulator();
 }
 
-void CFlightCompany::CrewGetUniform() const {
-	for (int i = 0; i < crewCount; ++i)
-		if (crewMembers[i]) crewMembers[i]->GetUniform();
-}
 
 
 

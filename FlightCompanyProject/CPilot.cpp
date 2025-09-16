@@ -19,14 +19,13 @@ void CPilot::setIsCaptain(bool captain) { isCaptain = captain; }
 void CPilot::setHome(const CAddress* addr) { home = addr; }
 
 void CPilot::GetPresent() const {
-    cout << getMemberName() << " thanking the company for receiving the holiday gift" << endl;
+    cout << getMemberName()
+        << " thanking the company for receiving the holiday gift" << endl;
 }
-
 void CPilot::GetUniform() const {
     cout << getMemberName()
         << ": this is the fifth time I get a new uniform, this is a waste of money!" << endl;
 }
-
 void CPilot::GoToSimulator() const {
     cout << "Pilot " << getMemberName() << " got the message will come soon" << endl;
 }
@@ -46,12 +45,14 @@ bool CPilot::operator==(const CPilot& other) const {
     return *home == *other.home;
 }
 
-void CPilot::Print(ostream& os) const {
-    os << "Pilot " << getMemberName()
+void CPilot::Print(std::ostream& os) const {
+    os << "Pilot  " << getMemberName()
         << " minutes " << getMemberAirTime();
     if (home) os << " Home " << *home;
-    os << (isCaptain ? "  a Captain" : "  Not a Captain") << endl;
+    if (isCaptain) os << "  a Captain" << std::endl;
+    else           os << "\n Not a Captain" << std::endl;
 }
+
 
 ostream& operator<<(ostream& os, const CPilot& pilot) {
     pilot.Print(os);

@@ -45,7 +45,7 @@ public:
     // === NEW ===
     // Validate and execute a takeoff for THIS flight.
     // Returns true if legal and "executed" (notifications printed); false otherwise.
-    bool TakeOff() const;
+    bool TakeOff();
 
     // (Optional convenience if you want callers to get at the array)
     // CCrewMember* const* GetCrew() const { return crew; }

@@ -84,28 +84,26 @@ ostream& operator<<(ostream& os, const CFlight& f)
 }
 
 
-bool CFlight::TakeOff() const
-{
+bool CFlight::TakeOff() {
     if (!plane) return false;
 
     const bool isCargo = (dynamic_cast<CCargo*>(plane) != nullptr);
 
     int pilots = 0;
-    for (int i = 0; i < crewCount; ++i) {
+    for (int i = 0; i < crewCount; ++i)
         if (crew[i] && dynamic_cast<CPilot*>(crew[i])) ++pilots;
-    }
+
+    if (isCargo) { if (pilots < 1) return false; }
+    else { if (pilots != 1) return false; }
+
+    const int minutes = info.getFlightMinutes();   
 
     if (isCargo) {
-        if (pilots < 1) return false;
-    }
-    else {
-        if (pilots != 1) return false;
-    }
-
-    if (isCargo) {
-        std::cout << "Need to add " << info.getFlightMinutes()
+        std::cout << "Need to add " << minutes
             << " minutes to my log book" << std::endl;
-
     }
+
+    for (int i = 0; i < crewCount; ++i)
+        if (crew[i]) *crew[i] += minutes;
     return true;
 }

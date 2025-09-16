@@ -1,4 +1,5 @@
 #include "CPlane.h"
+#include "CCargo.h" 
 #include<string>
 #include<iostream>
 #include<iomanip>
@@ -58,10 +59,17 @@ void CPlane::setNumOfSeats(int numOfSeats)
 
 
 // ===== Methods =====
-ostream& operator <<(ostream& os, const CPlane& plane) 
-{
-	os <<"Plane " << plane.planeIdentifier << " degem " << plane.planeModel <<
-		" seats " << plane.numOfSeats << endl;
+ostream& operator<<(ostream& os, const CPlane& plane) {
+	os << "Plane " << plane.getPlaneIdentifier()
+		<< " degem " << plane.getPlaneModel()
+		<< " seats " << plane.getNumOfSeats() << endl;
+
+	if (auto cargo = dynamic_cast<const CCargo*>(&plane)) {
+		os << "Cargo M_vol " << cargo->getMaxVolume()
+			<< " M_Kg " << cargo->getMaxWeight()
+			<< " C_vol " << cargo->getLoadedVolume()
+			<< " C_Kg " << cargo->getLoadedWeight() << endl;
+	}
 	return os;
 }
 

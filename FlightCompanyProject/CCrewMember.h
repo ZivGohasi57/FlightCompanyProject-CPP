@@ -21,6 +21,7 @@ public:
     CCrewMember(const string name);
     CCrewMember(const string name, int airTime);
     CCrewMember(const CCrewMember& other);
+    virtual CCrewMember* Clone() const { return new CCrewMember(*this); }
     virtual void Print(std::ostream& os) const;
     virtual ~CCrewMember();
 
@@ -40,7 +41,7 @@ public:
     // methods
     void operator=(const CCrewMember& other);
     bool operator==(const CCrewMember& other) const;
-    bool operator+=(const int minutes);
+    virtual bool operator+=(int minutes);
     virtual void GetPresent() const;
     virtual void GetUniform() const;
 

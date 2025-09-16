@@ -73,12 +73,11 @@ void CAddress::setHouseNumber(int houseNumber)
 
 
 // ===== Methods =====
-ostream& operator<<(ostream& os, const CAddress& address) 
-{
-	os << address.cityName << " " << address.houseNumber <<
-		" " << address.streetName << endl;
+ostream& operator<<(ostream& os, const CAddress& a) {
+	os << a.streetName << ' ' << a.houseNumber << "  " << a.cityName;
 	return os;
 }
+
 
 
 istream& operator>>(std::istream& is, CAddress& a)
