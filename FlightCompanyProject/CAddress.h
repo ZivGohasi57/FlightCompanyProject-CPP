@@ -1,17 +1,18 @@
 #pragma once
 #include <string>
+#include <iostream>
 
 using namespace std;
 
 class CAddress
 {
     friend ostream& operator<<(ostream& os, const CAddress& address);
-    friend istream& operator>>(std::istream& is, CAddress& a);
+    friend istream& operator>>(istream& is, CAddress& a);
+
 private:
     string cityName;
     string streetName;
     int houseNumber;
-
 
 public:
     CAddress(const int houseNumber = 1, const char* streetName = "Hertzel", const char* cityName = "Tel Aviv");
@@ -34,7 +35,5 @@ public:
     bool operator!=(const CAddress& other) const;
     string GetCurrentAddress();
 
-
     ~CAddress();
 };
-
