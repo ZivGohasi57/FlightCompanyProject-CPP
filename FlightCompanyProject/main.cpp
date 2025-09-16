@@ -18,7 +18,7 @@ const int CM_COUNT = 5;
 const int PLANE_COUNT = 4;
 const int FLIGHT_COUNT = 4;
 
-void main()
+int main()
 {
 	CFlightCompany Delta("Delta");
 	CAddress ad1(34, "DZ");
@@ -184,5 +184,5 @@ void main()
 
 
 
-	system("pause");
+	return 0;
 }
