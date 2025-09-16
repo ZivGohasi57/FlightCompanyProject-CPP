@@ -1,34 +1,32 @@
 #include "CCrewMember.h"
 #include <iostream>
 
-
+using namespace std;
 
 int CCrewMember::s_nextId = CCrewMember::START_ID;
 
-// ===== Constructors / Destructor =====
-CCrewMember::CCrewMember(const string name, const CAddress& address, int airTime) 
-	: crewMemberNumber(s_nextId++), memberName(name), memberAddress(address)
+CCrewMember::CCrewMember(const string name, const CAddress& address, int airTime)
+    : crewMemberNumber(s_nextId++), memberName(name), memberAddress(address)
 {
-	setMemberAirTime(airTime);
+    setMemberAirTime(airTime);
 }
 
 CCrewMember::CCrewMember(const string name)
-	: CCrewMember(name, CAddress(), 0) {
+    : CCrewMember(name, CAddress(), 0)
+{
 }
-
 
 CCrewMember::CCrewMember(const string name, int airTime)
-	: crewMemberNumber(s_nextId++), memberName(name), memberAddress(CAddress())
+    : crewMemberNumber(s_nextId++), memberName(name), memberAddress(CAddress())
 {
-	setMemberAirTime(airTime);
+    setMemberAirTime(airTime);
 }
 
-
 CCrewMember::CCrewMember(const CCrewMember& other)
-	: crewMemberNumber(other.crewMemberNumber),
-	memberName(other.memberName),
-	memberAirTime(other.memberAirTime),
-	memberAddress(other.memberAddress)
+    : crewMemberNumber(other.crewMemberNumber),
+    memberName(other.memberName),
+    memberAirTime(other.memberAirTime),
+    memberAddress(other.memberAddress)
 {
 }
 
@@ -36,90 +34,93 @@ CCrewMember::~CCrewMember()
 {
 }
 
-// ===== Getters =====
 string CCrewMember::getMemberName() const
 {
-	return this->memberName;
+    return this->memberName;
 }
 
 int CCrewMember::getMemberAirTime() const
 {
-	return this->memberAirTime;
+    return this->memberAirTime;
 }
 
 CAddress CCrewMember::getMemberAddress() const
 {
-	return this->memberAddress;
-}
- 
-int CCrewMember::getMemberId() const
-{
-	return crewMemberNumber;
+    return this->memberAddress;
 }
 
-// ===== Setters =====
+int CCrewMember::getMemberId() const
+{
+    return crewMemberNumber;
+}
+
 void CCrewMember::setMemberName(const string newName)
 {
-	this->memberName = newName;
+    this->memberName = newName;
 }
 
 void CCrewMember::setMemberAddress(const CAddress& newAddress)
 {
-	this->memberAddress = newAddress;
+    this->memberAddress = newAddress;
 }
 
 void CCrewMember::setMemberAirTime(const int airTime)
 {
-	if (airTime > 0) 
-	{
-		this->memberAirTime = airTime;
-		return;
-	}
-	this->memberAirTime = 0;
+    if (airTime > 0)
+    {
+        this->memberAirTime = airTime;
+        return;
+    }
+    this->memberAirTime = 0;
 }
 
-// ===== Methods =====
-ostream& operator<<(ostream& os, const CCrewMember& member) {
-	member.Print(os);       
-	return os;
+ostream& operator<<(ostream& os, const CCrewMember& member)
+{
+    member.Print(os);
+    return os;
 }
 
-void CCrewMember::operator=(const CCrewMember& other) {
-	if (this == &other) return;
-	crewMemberNumber = other.crewMemberNumber;
-	memberAddress = other.memberAddress;
-	memberAirTime = other.memberAirTime;
-	memberName = other.memberName;
+void CCrewMember::operator=(const CCrewMember& other)
+{
+    if (this == &other)
+    {
+        return;
+    }
+    crewMemberNumber = other.crewMemberNumber;
+    memberAddress = other.memberAddress;
+    memberAirTime = other.memberAirTime;
+    memberName = other.memberName;
 }
 
-bool CCrewMember::operator==(const CCrewMember& other) const {
-	return crewMemberNumber == other.crewMemberNumber;
+bool CCrewMember::operator==(const CCrewMember& other) const
+{
+    return crewMemberNumber == other.crewMemberNumber;
 }
 
 bool CCrewMember::operator+=(const int minutes)
 {
-	if (minutes > 0)
-	{
-		this->memberAirTime += minutes;	
-		return true;
-	}
-	return false;
+    if (minutes > 0)
+    {
+        this->memberAirTime += minutes;
+        return true;
+    }
+    return false;
 }
 
-void CCrewMember::Print(ostream& os) const {
-	os << "Crewmember " << getMemberName()
-		<< " minutes " << getMemberAirTime() << endl;
+void CCrewMember::Print(ostream& os) const
+{
+    os << "Crewmember " << getMemberName()
+        << " minutes " << getMemberAirTime() << endl;
 }
 
-
-void CCrewMember::GetPresent() const {
-	cout << getMemberName()
-		<< " thanking the company for receiving the holiday gift" << endl;
+void CCrewMember::GetPresent() const
+{
+    cout << getMemberName()
+        << " thanking the company for receiving the holiday gift" << endl;
 }
 
-void CCrewMember::GetUniform() const {
-	cout << getMemberName()
-		<< ": this is the fifth time I change uniform this year" << endl;
+void CCrewMember::GetUniform() const
+{
+    cout << getMemberName()
+        << ": this is the fifth time I change uniform this year" << endl;
 }
-
-

@@ -22,28 +22,21 @@ public:
     CCrewMember(const string name, int airTime);
     CCrewMember(const CCrewMember& other);
     virtual CCrewMember* Clone() const { return new CCrewMember(*this); }
-    virtual void Print(std::ostream& os) const;
+    virtual void Print(ostream& os) const;
     virtual ~CCrewMember();
 
-
-    // getters
     string getMemberName() const;
     int getMemberAirTime() const;
     CAddress getMemberAddress() const;
     int getMemberId() const;
 
-    // setters
     void setMemberName(const string newName);
     void setMemberAddress(const CAddress& newAddress);
     void setMemberAirTime(const int airTime);
 
-
-    // methods
     void operator=(const CCrewMember& other);
     bool operator==(const CCrewMember& other) const;
     virtual bool operator+=(int minutes);
     virtual void GetPresent() const;
     virtual void GetUniform() const;
-
 };
-
