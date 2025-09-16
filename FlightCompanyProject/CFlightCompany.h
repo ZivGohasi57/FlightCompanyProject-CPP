@@ -7,6 +7,7 @@
 #define MAX_CREWS 10
 #define MAX_PLANES 10
 #define MAX_FLIGHT 10
+
 using namespace std;
 
 class CFlightCompany
@@ -26,28 +27,27 @@ private:
 public:
     CFlightCompany(const string name);
     CFlightCompany(const CFlightCompany& other);
+    ~CFlightCompany();
+
     bool AddCrewMember(const CCrewMember& member);
     bool AddPlane(const CPlane& plane);
     bool AddFlight(const CFlight& flight);
     bool AddCrewToFlight(int flightNumber, int memberId);
+
     CPlane* GetPlane(int index);
-    void Print(ostream& out);
-    CCrewMember* GetCrewMember(int index) const;   
+    CCrewMember* GetCrewMember(int index) const;
+    CFlight* GetFlightByNum(int flightNumber) const;
+
     int GetCargoCount() const;
+    string getCompanyName() const;
+
+    void SetName(const string newCompnayName);
+    void Print(ostream& out);
     void PilotsToSimulator() const;
     void CrewGetPresent() const;
     void CrewGetUniform() const;
-    bool Takeoff(int flightNumber);     
-    CFlight* GetFlightByNum(int flightNumber) const;
-    ~CFlightCompany();
 
-
-    // getters
-    string getCompanyName() const;
-
-    // setters
-    void SetName(const string newCompnayName);
+    bool Takeoff(int flightNumber);
 
     void operator=(const CFlightCompany& other);
-
 };
