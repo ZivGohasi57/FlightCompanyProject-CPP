@@ -9,9 +9,9 @@ using namespace std;
 #include "CFlight.h"
 #include "CFlightCompany.h"
 #include "Caddress.h"
-#include "Pilot.h"
-#include "Cargo.h"
-#include "Host.h"
+#include "CPilot.h"
+#include "CCargo.h"
+#include "CHost.h"
 
 
 const int CM_COUNT = 5;
