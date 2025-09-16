@@ -102,35 +102,49 @@ ostream& operator<<(ostream& os, const CFlight& f)
 
 bool CFlight::TakeOff() const
 {
-    if (!plane) return false;
+    // 1) Plane must be assigned
+    if (!plane) {
+        return false;
+    }
 
-    const bool isCargo = (dynamic_cast<const CCargo*>(plane) != nullptr);
+    // 2) Determine if this is a cargo flight (plane is CCargo)
+    const bool isCargo = (dynamic_cast<CCargo*>(plane) != nullptr);
 
+    // 3) Analyze crew composition
     int pilots = 0;
-#if HAS_SENIOR_HOST
-    int seniorHosts = 0;
-#endif
+    int seniorHosts = 0; // counted only if your project has CSeniorHost
 
     for (int i = 0; i < crewCount; ++i) {
         CCrewMember* m = crew[i];
         if (!m) continue;
 
-        if (dynamic_cast<CPilot*>(m)) { ++pilots; continue; }
-#if HAS_SENIOR_HOST
-        if (dynamic_cast<CSeniorHost*>(m)) { ++seniorHosts; continue; }
-#endif
+        if (dynamic_cast<CPilot*>(m)) {
+            ++pilots;
+            continue;
+        }
+        // Count senior hosts only if the type exists in your project
+        if (dynamic_cast<CSeniorHost*>(m)) {
+            ++seniorHosts;
+            continue;
+        }
     }
 
+    // 4) Validate rules
     if (isCargo) {
-        if (pilots < 1) return false;         // cargo: at least one pilot
+        // Cargo: at least one pilot
+        if (pilots < 1) {
+            return false;
+        }
     }
     else {
-        if (pilots != 1) return false;        // passenger: exactly one pilot
-#if HAS_SENIOR_HOST
-        if (seniorHosts > 1) return false;    // at most one senior host
-#endif
+        // Passenger: exactly one pilot; if there is a senior host, at most one
+        if (pilots != 1) {
+            return false;
+        }
+        if (seniorHosts > 1) {
+            return false;
+        }
     }
 
     return true;
 }
-
