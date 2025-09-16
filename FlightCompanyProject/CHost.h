@@ -14,7 +14,7 @@ public:
     CHost() = delete;
     CHost(const char* name, eType type);
     CHost(const CHost& other);
-    ~CHost() override;
+    ~CHost();
 
     const CHost& operator=(const CHost& other);
 
