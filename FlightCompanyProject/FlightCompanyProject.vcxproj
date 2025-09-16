@@ -177,6 +177,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CAddress.cpp" />
+    <ClCompile Include="CCargo.cpp" />
     <ClCompile Include="CCrewMember.cpp" />
     <ClCompile Include="CFlightCompany.cpp" />
     <ClCompile Include="CFlightInfo.cpp" />
@@ -188,6 +189,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CAddress.h" />
+    <ClInclude Include="CCargo.h" />
     <ClInclude Include="CCrewMember.h" />
     <ClInclude Include="CFlightCompany.h" />
     <ClInclude Include="CFlightInfo.h" />
