@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -13,32 +14,24 @@ private:
     int flightMinutes;
     int flightDistance;
 
-
 public:
     CFlightInfo(const string Destination, const int flightNum, const int flightMinutes, const int flightDistance);
     CFlightInfo(const CFlightInfo& other);
     ~CFlightInfo();
 
-
-    // getters
     int getFlightNumber() const;
     string getDestination() const;
     int getFlightMinutes() const;
-    int getFlightDistance()const;
+    int getFlightDistance() const;
     int GetFNum();
 
-
-    // setters
     bool setFlightNumber(const int newFlightNum);
     void SetDest(const string newDestination);
     bool setFlightMinutes(const int newFlightMinutes);
     bool setFlightDistance(const int newFlightDistance);
-    
 
-    // methods 
     bool operator==(const CFlightInfo& other) const;
     bool operator!=(const CFlightInfo& other) const;
     void operator=(const CFlightInfo& other);
     operator int() const;
 };
-
