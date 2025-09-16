@@ -178,7 +178,7 @@ CCrewMember* CFlightCompany::GetCrewMember(int index) const {
 }
 
 // --- CountCargoPlanes() ---
-int CFlightCompany::CountCargoPlanes() const {
+int CFlightCompany::GetCargoCount() const {
 	int cnt = 0;
 	for (int i = 0; i < planeCount; ++i) {
 		if (IsCargo(planes[i])) ++cnt;
@@ -187,7 +187,7 @@ int CFlightCompany::CountCargoPlanes() const {
 }
 
 // --- NotifyPilotsSimulator() ---
-void CFlightCompany::NotifyPilotsSimulator() const {
+void CFlightCompany::PilotsToSimulator() const {
 	for (int i = 0; i < crewCount; ++i) {
 		if (auto* p = dynamic_cast<CPilot*>(crewMembers[i])) {
 			p->GoToSimulator();
@@ -196,7 +196,7 @@ void CFlightCompany::NotifyPilotsSimulator() const {
 }
 
 // --- DistributePresents() ---
-void CFlightCompany::DistributePresents() const {
+void CFlightCompany::CrewGetPresent() const {
 	for (int i = 0; i < crewCount; ++i) {
 		if (!crewMembers[i]) continue;
 		if (auto* p = dynamic_cast<CPilot*>(crewMembers[i])) {
@@ -208,7 +208,7 @@ void CFlightCompany::DistributePresents() const {
 }
 
 // --- UpdateUniforms() ---
-void CFlightCompany::UpdateUniforms() const {
+void CFlightCompany::CrewGetUniform() const {
 	for (int i = 0; i < crewCount; ++i) {
 		if (!crewMembers[i]) continue;
 		if (auto* p = dynamic_cast<CPilot*>(crewMembers[i])) {

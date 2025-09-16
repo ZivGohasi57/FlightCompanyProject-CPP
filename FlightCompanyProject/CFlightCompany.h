@@ -33,10 +33,10 @@ public:
     CPlane* GetPlane(int index);
     void Print(ostream& out);
     CCrewMember* GetCrewMember(int index) const;   
-    int CountCargoPlanes() const;
-    void NotifyPilotsSimulator() const;
-    void DistributePresents() const;
-    void UpdateUniforms() const;
+    int GetCargoCount() const;
+    void PilotsToSimulator() const;
+    void CrewGetPresent() const;
+    void CrewGetUniform() const;
     bool Takeoff(int flightNumber);     
     CFlight* GetFlightByNum(int flightNumber) const;
     ~CFlightCompany();
