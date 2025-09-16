@@ -21,7 +21,7 @@ private:
 public:
 	CFlight(const CFlightInfo& flightInfo, CPlane* flightPlane = nullptr);
 	~CFlight();
-
+	CCrewMember* const* GetCrew() const { return crew; }
 	void SetPlane(CPlane* newPlane);
 	CPlane* GetPlane() const;
 

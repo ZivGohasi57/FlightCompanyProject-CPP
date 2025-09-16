@@ -21,6 +21,7 @@ private:
     int crewCount = 0;
     int planeCount = 0;
     int flightCount = 0;
+    static bool IsCargo(const CPlane* p);
 
 public:
     CFlightCompany(const string name);
@@ -31,6 +32,12 @@ public:
     bool AddCrewToFlight(int flightNumber, int memberId);
     CPlane* GetPlane(int index);
     void Print(ostream& out);
+    CCrewMember* GetCrewMember(int index) const;   
+    int CountCargoPlanes() const;
+    void NotifyPilotsSimulator() const;
+    void DistributePresents() const;
+    void UpdateUniforms() const;
+    bool Takeoff(int flightNumber);                
     ~CFlightCompany();
 
 
