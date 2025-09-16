@@ -76,71 +76,36 @@ CFlight& CFlight::operator=(const CFlight& other)
 ostream& operator<<(ostream& os, const CFlight& f)
 {
     os << "Flight " << f.info;
-    if (f.plane != nullptr)
-        os << *(f.plane);
-    else
-        os << "No plane assign yet ";
-
-    if (f.crewCount == 0)
-    {
-        os << "There are 0 crew members in flight:\n";
-    }
-    else
-    {
-        os << "Crew members in flight:\n";
-        for (int i = 0; i < f.crewCount; i++)
-        {
-            os << *(f.crew[i]);
-        }
-    }
+    if (f.plane != nullptr) os << *(f.plane);
+    else os << "No plane assign yet ";
+    os << " There are " << f.crewCount << " crew memebers in flight:\n";
+    for (int i = 0; i < f.crewCount; i++) os << *(f.crew[i]);
     return os;
 }
 
+
 bool CFlight::TakeOff() const
 {
-    // 1) Plane must be assigned
-    if (!plane) {
-        return false;
-    }
+    if (!plane) return false;
 
-    // 2) Determine if this is a cargo flight (plane is CCargo)
     const bool isCargo = (dynamic_cast<CCargo*>(plane) != nullptr);
 
-    // 3) Analyze crew composition
     int pilots = 0;
-    int seniorHosts = 0; // counted only if your project has CSeniorHost
-
     for (int i = 0; i < crewCount; ++i) {
-        CCrewMember* m = crew[i];
-        if (!m) continue;
-
-        if (dynamic_cast<CPilot*>(m)) {
-            ++pilots;
-            continue;
-        }
-        // Count senior hosts only if the type exists in your project
-        if (dynamic_cast<CSeniorHost*>(m)) {
-            ++seniorHosts;
-            continue;
-        }
+        if (crew[i] && dynamic_cast<CPilot*>(crew[i])) ++pilots;
     }
 
-    // 4) Validate rules
     if (isCargo) {
-        // Cargo: at least one pilot
-        if (pilots < 1) {
-            return false;
-        }
+        if (pilots < 1) return false;
     }
     else {
-        // Passenger: exactly one pilot; if there is a senior host, at most one
-        if (pilots != 1) {
-            return false;
-        }
-        if (seniorHosts > 1) {
-            return false;
-        }
+        if (pilots != 1) return false;
     }
 
+    if (isCargo) {
+        std::cout << "Need to add " << info.getFlightMinutes()
+            << " minutes to my log book" << std::endl;
+
+    }
     return true;
 }

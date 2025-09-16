@@ -9,33 +9,24 @@ class CPilot : public CCrewMember {
     friend ostream& operator<<(ostream& os, const CPilot& pilot);
 
 private:
-    bool isCaptain;           // true if captain
-    const CAddress* home;     // non-owning pointer, may be nullptr
+    bool isCaptain;
+    const CAddress* home;
 
 public:
-    // constructors
     CPilot(const string& name, bool isCaptain, const CAddress* home = nullptr);
     CPilot(const CPilot& other);
-
-    // destructor
     ~CPilot();
 
-    // getters
     bool getIsCaptain() const;
     const CAddress* getHome() const;
-
-    // setters
     void setIsCaptain(bool captain);
     void setHome(const CAddress* addr);
 
-    // methods
-    string GetPresent() const;     // gift
-    string GetUniform() const;     // uniform type
-    void GoToSimulator() const;    // simulator requirement
+    void GetPresent() const override;
+    void GetUniform() const override;
+    void GoToSimulator() const;
 
-    // overloads
     bool operator==(const CPilot& other) const;
-    bool operator+=(int minutes);  // add airtime (+10% if captain, rounded)
-
+    bool operator+=(int minutes);
     void Print(ostream& os) const;
 };

@@ -41,6 +41,8 @@ public:
     void operator=(const CCrewMember& other);
     bool operator==(const CCrewMember& other) const;
     bool operator+=(const int minutes);
+    virtual void GetPresent() const;
+    virtual void GetUniform() const;
 
 };
 

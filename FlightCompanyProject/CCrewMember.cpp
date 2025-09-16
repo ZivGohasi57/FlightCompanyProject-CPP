@@ -113,3 +113,14 @@ void CCrewMember::Print(ostream& os) const {
 }
 
 
+void CCrewMember::GetPresent() const {
+	cout << getMemberName()
+		<< " thanking the company for receiving the holiday gift" << endl;
+}
+
+void CCrewMember::GetUniform() const {
+	cout << getMemberName()
+		<< ": this is the fifth time I change uniform this year" << endl;
+}
+
+

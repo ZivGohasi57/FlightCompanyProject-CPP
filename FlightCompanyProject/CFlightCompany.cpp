@@ -195,104 +195,25 @@ void CFlightCompany::PilotsToSimulator() const {
 	}
 }
 
-// --- DistributePresents() ---
 void CFlightCompany::CrewGetPresent() const {
-	for (int i = 0; i < crewCount; ++i) {
-		if (!crewMembers[i]) continue;
-		if (auto* p = dynamic_cast<CPilot*>(crewMembers[i])) {
-			std::cout << "Gift for " << p->getMemberName()
-				<< ": " << p->GetPresent() << std::endl;             // CCrewMember/CPilot
-		}
-		// Extend similarly for CHost / CSeniorHost if/when you add them.
-	}
+	for (int i = 0; i < crewCount; ++i)
+		if (crewMembers[i]) crewMembers[i]->GetPresent();
 }
 
-// --- UpdateUniforms() ---
 void CFlightCompany::CrewGetUniform() const {
-	for (int i = 0; i < crewCount; ++i) {
-		if (!crewMembers[i]) continue;
-		if (auto* p = dynamic_cast<CPilot*>(crewMembers[i])) {
-			std::cout << "Uniform for " << p->getMemberName()
-				<< ": " << p->GetUniform() << std::endl;
-		}
-		// Extend for CHost / CSeniorHost if/when you add them.
-	}
+	for (int i = 0; i < crewCount; ++i)
+		if (crewMembers[i]) crewMembers[i]->GetUniform();
 }
 
-// --- Takeoff(flightNumber) ---
+
+
 bool CFlightCompany::Takeoff(int flightNumber) {
-	// 1) find the flight
-	CFlight* flight = nullptr;
-	for (int i = 0; i < flightCount; ++i) {
-		if (!flights[i]) continue;
-		if (flights[i]->GetFlightInfo().getFlightNumber() == flightNumber) { // flight number
-			flight = flights[i];
-			break;
-		}
-	}
-	if (!flight) {
-		std::cout << "Takeoff aborted: flight " << flightNumber << " not found\n";
-		return false;
-	}
-
-	// 2) plane must be assigned
-	CPlane* plane = flight->GetPlane();
-	if (!plane) {
-		std::cout << "Takeoff aborted: no plane assigned to flight " << flightNumber << "\n";
-		return false;
-	}
-
-	const bool isCargo = IsCargo(plane);
-
-	// 3) analyze crew composition for THIS flight
-	int pilots = 0;
-	// (Optional slots for host types when you add them)
-	// int seniorHosts = 0;
-	// int hosts = 0;
-
-	CCrewMember* const* fcrew = flight->GetCrew();                 // accessor we added
-	const int n = flight->GetCrewCount();
-
-	for (int i = 0; i < n; ++i) {
-		if (!fcrew[i]) continue;
-		if (dynamic_cast<CPilot*>(fcrew[i])) { ++pilots; continue; }
-		// if (dynamic_cast<CSeniorHost*>(fcrew[i])) { ++seniorHosts; continue; }
-		// if (dynamic_cast<CHost*>(fcrew[i])) { ++hosts; continue; }
-	}
-
-	// 4) validate rules
-	if (isCargo) {
-		if (pilots < 1) {
-			std::cout << "Takeoff aborted: cargo flight requires at least one pilot\n";
-			return false;
-		}
-	}
-	else {
-		if (pilots != 1) {
-			std::cout << "Takeoff aborted: passenger flight requires exactly one pilot\n";
-			return false;
-		}
-		// If/when SeniorHost exists, ensure at most one:
-		// if (seniorHosts > 1) { std::cout << "Takeoff aborted: at most one senior host\n"; return false; }
-	}
-
-	// 5) notify crew + plane
-	std::cout << "Flight " << flightNumber << " taking off with plane "
-		<< plane->getPlaneIdentifier() << " (" << plane->getPlaneModel() << ")\n";
-
-	if (isCargo) {
-		// cargo-specific message (as per assignment)
-		std::cout << "Cargo plane notice: Heavy takeoff procedures engaged.\n";
-	}
-
-	for (int i = 0; i < n; ++i) {
-		if (!fcrew[i]) continue;
-		std::cout << "Notify " << fcrew[i]->getMemberName() << " about takeoff\n";
-	}
-
-	// (If you later add virtual hooks like plane->OnTakeoff() / member->OnTakeoff(), call them here.)
-	return true;
+	CFlight* flight = GetFlightByNum(flightNumber);
+	if (!flight) return false;
+	return flight->TakeOff();
 }
+
+
 CFlight* CFlightCompany::GetFlightByNum(int flightNumber) const {
 	for (int i = 0; i < flightCount; ++i) {
 		if (flights[i] &&

@@ -1,66 +1,56 @@
 #include "CPilot.h"
 #include <cmath>
+#include <iostream>
+using namespace std;
 
-// ctor
 CPilot::CPilot(const string& name, bool isCaptain, const CAddress* home)
-    : CCrewMember(name), isCaptain(isCaptain), home(home) {}
+    : CCrewMember(name), isCaptain(isCaptain), home(home) {
+}
 
 CPilot::CPilot(const CPilot& other)
-    : CCrewMember(other), isCaptain(other.isCaptain), home(other.home) {}
+    : CCrewMember(other), isCaptain(other.isCaptain), home(other.home) {
+}
 
 CPilot::~CPilot() {}
 
-// getters
 bool CPilot::getIsCaptain() const { return isCaptain; }
 const CAddress* CPilot::getHome() const { return home; }
-
-// setters
 void CPilot::setIsCaptain(bool captain) { isCaptain = captain; }
 void CPilot::setHome(const CAddress* addr) { home = addr; }
 
-// gift
-string CPilot::GetPresent() const {
-    return isCaptain ? "Whiskey" : "Perfume";
+void CPilot::GetPresent() const {
+    cout << getMemberName() << " thanking the company for receiving the holiday gift" << endl;
 }
 
-// uniform
-string CPilot::GetUniform() const {
-    return isCaptain ? "Black uniform" : "Blue uniform";
+void CPilot::GetUniform() const {
+    cout << getMemberName()
+        << ": this is the fifth time I get a new uniform, this is a waste of money!" << endl;
 }
 
-// simulator
 void CPilot::GoToSimulator() const {
-    cout << "Pilot " << getMemberName() << " is going to simulator" << endl;
+    cout << "Pilot " << getMemberName() << " got the message will come soon" << endl;
 }
 
-// add airtime
 bool CPilot::operator+=(int minutes) {
     if (minutes <= 0) return false;
     int add = minutes;
-    if (isCaptain) {
-        add = static_cast<int>(round(minutes * 1.1)); // +10%, rounded
-    }
+    if (isCaptain) add = static_cast<int>(round(minutes * 1.1));
     setMemberAirTime(getMemberAirTime() + add);
     return true;
 }
 
-// equality
 bool CPilot::operator==(const CPilot& other) const {
     if (getMemberName() != other.getMemberName()) return false;
-
     if (home == nullptr && other.home == nullptr) return true;
     if (home == nullptr || other.home == nullptr) return false;
     return *home == *other.home;
 }
 
-// print
 void CPilot::Print(ostream& os) const {
     os << "Pilot " << getMemberName()
-        << " id " << getMemberId()
-        << " air minutes " << getMemberAirTime()
-        << " " << (isCaptain ? "[Captain]" : "[Co-Pilot]");
-    if (home) os << " Address: " << *home;
-    os << endl;
+        << " minutes " << getMemberAirTime();
+    if (home) os << " Home " << *home;
+    os << (isCaptain ? "  a Captain" : "  Not a Captain") << endl;
 }
 
 ostream& operator<<(ostream& os, const CPilot& pilot) {
