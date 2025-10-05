@@ -13,7 +13,6 @@ using namespace std;
 class CFlightCompany
 {
     friend ostream& operator<<(ostream& os, const CFlightCompany& company);
-
 private:
     string companyName;
     CCrewMember* crewMembers[MAX_CREWS];
@@ -23,31 +22,31 @@ private:
     int planeCount = 0;
     int flightCount = 0;
     static bool IsCargo(const CPlane* p);
-
 public:
     CFlightCompany(const string name);
+    CFlightCompany(const string& fileName, int);
     CFlightCompany(const CFlightCompany& other);
     ~CFlightCompany();
-
     bool AddCrewMember(const CCrewMember& member);
     bool AddPlane(const CPlane& plane);
     bool AddFlight(const CFlight& flight);
     bool AddCrewToFlight(int flightNumber, int memberId);
-
+    int GetCrewCount() const;
+    int GetPlaneCount() const;
+    int GetFlightCount() const;
     CPlane* GetPlane(int index);
+    CPlane& operator[](int index);
+    const CPlane& operator[](int index) const;
     CCrewMember* GetCrewMember(int index) const;
     CFlight* GetFlightByNum(int flightNumber) const;
-
     int GetCargoCount() const;
     string getCompanyName() const;
-
     void SetName(const string newCompnayName);
     void Print(ostream& out);
     void PilotsToSimulator() const;
     void CrewGetPresent() const;
     void CrewGetUniform() const;
-
     bool Takeoff(int flightNumber);
-
     void operator=(const CFlightCompany& other);
+    void SaveToFile(const string& fileName) const;
 };

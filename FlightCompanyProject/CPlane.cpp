@@ -11,6 +11,8 @@ int CPlane::s_nextIdentifier = 100;
 CPlane::CPlane(const int seatNum, const string pModel)
     : planeIdentifier(s_nextIdentifier++), numOfSeats(seatNum), planeModel(pModel)
 {
+    if (numOfSeats <= 0) numOfSeats = 1;
+    if (planeModel.empty()) planeModel = "Unknown";
 }
 
 CPlane::CPlane(const CPlane& other)
@@ -41,14 +43,7 @@ int CPlane::getNumOfSeats() const
 
 void CPlane::setPlaneIdentifier(int planeIdentifier)
 {
-    if (planeIdentifier <= 0)
-    {
-        this->planeIdentifier = -1;
-    }
-    else
-    {
-        this->planeIdentifier = planeIdentifier;
-    }
+    if (planeIdentifier > 0) this->planeIdentifier = planeIdentifier;
 }
 
 void CPlane::setPlaneModel(string planeModel)
@@ -58,7 +53,7 @@ void CPlane::setPlaneModel(string planeModel)
 
 void CPlane::setNumOfSeats(int numOfSeats)
 {
-    this->numOfSeats = numOfSeats;
+    if (numOfSeats > 0) this->numOfSeats = numOfSeats;
 }
 
 ostream& operator<<(ostream& os, const CPlane& plane)
@@ -100,4 +95,16 @@ CPlane CPlane::operator++(int)
     CPlane old(*this);
     ++(*this);
     return old;
+}
+
+
+
+void CPlane::SetNextIdentifier(int v)
+{
+    s_nextIdentifier = v;
+}
+
+int CPlane::GetNextIdentifier()
+{
+    return s_nextIdentifier;
 }

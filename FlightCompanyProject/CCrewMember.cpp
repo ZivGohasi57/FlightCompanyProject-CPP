@@ -1,6 +1,6 @@
 #include "CCrewMember.h"
+#include "CFlightCompException.h"
 #include <iostream>
-
 using namespace std;
 
 int CCrewMember::s_nextId = CCrewMember::START_ID;
@@ -30,48 +30,20 @@ CCrewMember::CCrewMember(const CCrewMember& other)
 {
 }
 
-CCrewMember::~CCrewMember()
-{
-}
+CCrewMember::~CCrewMember() {}
 
-string CCrewMember::getMemberName() const
-{
-    return this->memberName;
-}
+string CCrewMember::getMemberName() const { return this->memberName; }
+int CCrewMember::getMemberAirTime() const { return this->memberAirTime; }
+CAddress CCrewMember::getMemberAddress() const { return this->memberAddress; }
+int CCrewMember::getMemberId() const { return crewMemberNumber; }
 
-int CCrewMember::getMemberAirTime() const
-{
-    return this->memberAirTime;
-}
-
-CAddress CCrewMember::getMemberAddress() const
-{
-    return this->memberAddress;
-}
-
-int CCrewMember::getMemberId() const
-{
-    return crewMemberNumber;
-}
-
-void CCrewMember::setMemberName(const string newName)
-{
-    this->memberName = newName;
-}
-
-void CCrewMember::setMemberAddress(const CAddress& newAddress)
-{
-    this->memberAddress = newAddress;
-}
+void CCrewMember::setMemberName(const string newName) { this->memberName = newName; }
+void CCrewMember::setMemberAddress(const CAddress& newAddress) { this->memberAddress = newAddress; }
 
 void CCrewMember::setMemberAirTime(const int airTime)
 {
-    if (airTime > 0)
-    {
-        this->memberAirTime = airTime;
-        return;
-    }
-    this->memberAirTime = 0;
+    if (airTime < 0) return;
+    memberAirTime = airTime;
 }
 
 ostream& operator<<(ostream& os, const CCrewMember& member)
@@ -82,10 +54,7 @@ ostream& operator<<(ostream& os, const CCrewMember& member)
 
 void CCrewMember::operator=(const CCrewMember& other)
 {
-    if (this == &other)
-    {
-        return;
-    }
+    if (this == &other) return;
     crewMemberNumber = other.crewMemberNumber;
     memberAddress = other.memberAddress;
     memberAirTime = other.memberAirTime;
@@ -99,12 +68,9 @@ bool CCrewMember::operator==(const CCrewMember& other) const
 
 bool CCrewMember::operator+=(const int minutes)
 {
-    if (minutes > 0)
-    {
-        this->memberAirTime += minutes;
-        return true;
-    }
-    return false;
+    if (minutes <= 0) return false;
+    memberAirTime += minutes;
+    return true;
 }
 
 void CCrewMember::Print(ostream& os) const

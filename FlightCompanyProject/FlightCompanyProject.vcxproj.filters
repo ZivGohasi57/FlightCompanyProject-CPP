@@ -39,6 +39,15 @@
     <ClCompile Include="CHost.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CCargo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CPilot.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PlaneCrewFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CFlight.h">
@@ -62,5 +71,21 @@
     <ClInclude Include="CHost.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CCargo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CPilot.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PlaneCrewFactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CFlightCompException.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\..\..\..\..\Mac\Home\Documents\Computer science courses\Second year\Second year - 3rd semester\תכנות מונחה עצמים C++ - מס׳ קורס 10216\Project\Part 4\Delta.txt" />
+    <Text Include="..\..\..\..\..\..\Mac\Home\Documents\Computer science courses\Second year\Second year - 3rd semester\תכנות מונחה עצמים C++ - מס׳ קורס 10216\Project\Part 4\Delta_remarks.txt" />
   </ItemGroup>
 </Project>

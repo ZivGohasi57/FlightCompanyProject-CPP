@@ -86,21 +86,13 @@ CFlight& CFlight::operator=(const CFlight& other)
 ostream& operator<<(ostream& os, const CFlight& f)
 {
     os << "Flight " << f.info;
-    if (f.plane != nullptr)
-    {
-        os << *(f.plane);
-    }
-    else
-    {
-        os << "No plane assign yet ";
-    }
+    if (f.plane) os << *(f.plane);
+    else os << "No plane assign yet ";
     os << " There are " << f.crewCount << " crew memebers in flight:\n";
-    for (int i = 0; i < f.crewCount; i++)
-    {
-        os << *(f.crew[i]);
-    }
+    for (int i = 0; i < f.crewCount; i++) if (f.crew[i]) os << *(f.crew[i]);
     return os;
 }
+
 
 bool CFlight::TakeOff()
 {
