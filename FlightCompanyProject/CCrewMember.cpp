@@ -23,7 +23,7 @@ CCrewMember::CCrewMember(const string name, int airTime)
 }
 
 CCrewMember::CCrewMember(const CCrewMember& other)
-    : crewMemberNumber(other.crewMemberNumber),
+    : crewMemberNumber(s_nextId++),
     memberName(other.memberName),
     memberAirTime(other.memberAirTime),
     memberAddress(other.memberAddress)
